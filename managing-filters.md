@@ -12,7 +12,11 @@ Form this example I will use thi repo https://github.com/use-form/use-query-filt
 yarn add @use-form/use-query-filter
 ```
 
-`use-query-filter` is a package that provide a way to handle more easily with filters and manager their state without effort. `use-query-form` provides a hook called `useQueryFilter` tha provide a similarly experience that a hook form provide, whit it you can pass a initial state object and receives two functions that change filter state `set, reset`, let see a code example:
+`use-query-filter` is a package that provide a way to handle more easily with filters and manager their state without effort. `use-query-form` provides a hook called `useQueryFilter` tha provide a similarly experience that a hook form provide, whit it you can pass a initial state object and receives two functions that change filter state `set, reset`.
+
+## Show me the code.
+
+In this example You will build a complete page divided in three parts, a filter, a list and pagination, each part should be a component e should had access to the filter state, since pagination must can to changes in filter state.
 
 ```typescript
 type Filter = {
