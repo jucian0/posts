@@ -2,17 +2,17 @@
 
 State management is too important when you work with front end development, and with react, this would be no different. And when you are working in a filter for many reasons you should maintain the filter state in URL, when you look at a specific page in one application and you press F5 your application should be able to display the same page with the same results and filter state or tabs opened. And the better way to make this is to persist this information in URL.
 
-When you figure out this it's normal you find some easy way to do this, but not always it's easy. I want to show you a way to do this that I consider simple.
+When you figure out this is normal you search for an easy way to implement this, but not always it's easy. I want to show you a way to implement that.
 
 ## Let see an example of an implementation that shows you how to do this.
 
-For this example I will use this repo https://github.com/use-form/use-query-filter, let start installing a package to deal with this.
+For this example, I will use this repo https://github.com/use-form/use-query-filter, let start installing a package to deal with this.
 
 ```bash
 yarn add @use-form/use-query-filter
 ```
 
-`use-query-filter` is a package that provides a way to handle more easily filters and manage their state without effort. `use-query-form` provides a hook called `useQueryFilter` that provide a similar experience that a hook form provide, whit it you can pass an initial state object and receives two functions that change filter state `set, reset`.
+`use-query-filter` - This package provides a way to managing filter state without effort. `use-query-form` provides a hook called `useQueryFilter` that provide a similar experience that a hook form provides, whit it you can pass an initial state object and receives two functions that change filter state `set, reset`.
 
 `set`: This function can receive a new state or can receive a function that receives the current filter state, then you can update the state by changing just the property you want to change; `set({ property: newValue })` or `set(state=>({...state, property: value }))`.
 
@@ -73,7 +73,7 @@ function Filter() {
 
 At the beginning of the code is set the initial values, nothing complicated here, after having the functions that handle the form submit and reset events `handleSubmit` and `handleReset`.
 
-After you can see the return of function component, and it used a `FilterProvider` that receives the useQueryFilter hook return. `FilterProvider` is very helpful when you want to build a full page with filter, list, and pagination because the pagination should know and should change the filter state since the `_offset` and `_limit` are pagination properties and these properties should belong the object filter.
+After you can see the return of the function component, and it used a `FilterProvider` that receives the useQueryFilter hook return. `FilterProvider` is very helpful when you want to build a full page with filter, list, and pagination because the pagination should know and should change the filter state since the `_offset` and `_limit` are pagination properties and these properties should belong the object filter.
 
 Let me show you an example:
 
@@ -97,9 +97,9 @@ function AnotherPart() {
 }
 ```
 
-If you are interested of what happing with the filter state you can use `useFilterContext` and with this hook it's possible to change and receives the current state of the filter.
+If you are interested in what happing with the filter state you can use `useFilterContext` and with this hook is possible to change and receives the current state of the filter.
 
-In a real situation it's possible that you use something like that:
+In a real situation is possible that you use something like that:
 
 ```jsx
 const initialValues = {
@@ -155,3 +155,5 @@ function Pagination() {
   return <>...</>;
 }
 ```
+
+The last example is just a small view of what happening and how you can organize your code when writing a page with filter and pagination, and one list, feel free to make points about this.
