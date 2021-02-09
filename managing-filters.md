@@ -22,7 +22,7 @@ yarn add @use-form/use-query-filter
 
 In this example, you will build a simple filter with some generics fields.
 
-```jsx
+```jsx 
 function Filter() {
   const [filter, { set, reset }] = useQueryFilter({
     keywords: '',
