@@ -27,7 +27,7 @@ function Filter() {
   const [filter, { set, reset }] = useQueryFilter({
     keywords: '',
     type: 'JSX',
-  });
+  }); 
 
   function handleSubmit() {
     console.log('submit', filter);
