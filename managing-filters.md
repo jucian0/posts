@@ -12,7 +12,7 @@ For this example, I will use this repo https://github.com/use-form/use-query-fil
 yarn add @use-form/use-query-filter
 ```
 
-`use-query-filter` - This package provides a way to managing filter state without effort. `use-query-form` provides a hook called `useQueryFilter` that provide a similar experience that a hook form provides, whit it you can pass an initial state object and receives two functions that change filter state `set, reset`.
+`use-query-filter` - This package provides a way to managing filter state without effort. `use-query-form` provides a hook called `useQueryFilter` that provide a similar experience that a hook form provides, with it, you can pass an initial state object and receives two functions that change filter state `set, reset`.
 
 `set`: This function can receive a new state or can receive a function that receives the current filter state, then you can update the state by changing just the property you want to change; `set({ property: newValue })` or `set(state=>({...state, property: value }))`.
 
@@ -157,3 +157,5 @@ function Pagination() {
 ```
 
 The last example is just a small view of what happening and how you can organize your code when writing a page with filter and pagination, and one list, feel free to make points about this.
+
+You can see this example running here https://codesandbox.io/s/use-query-filter-iiend
