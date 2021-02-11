@@ -29,11 +29,13 @@ function Filter() {
     type: 'JSX',
   }); 
 
-  function handleSubmit() {
+  function handleSubmit(e) {
+    e.preventDefault()
     console.log('submit', filter);
   }
 
-  function handleReset() {
+  function handleReset(e) {
+    e.preventDefault()
     reset((e) => console.log('reset', e));
   }
 
