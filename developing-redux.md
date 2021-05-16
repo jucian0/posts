@@ -56,12 +56,114 @@ We need another method do perform the state changes, `reducer` is the last méth
 
 ```typescript
 class Store{
-    constructor(){}
+    //...
+    private reduce()
+}
+```
 
-    public dispatch()
+Okay, we need more than methods in your redux implementation, we need a property to hold the state application, `state` and another to hold the reducers application.
 
-    public subscriber()
+```typescript
+class Store{
+    private state:{[key:string]:any}
+    private reducers:{[key:string]:Function}
+    //...
+}
+```
 
-    private reducer()
+## Implementation
+
+### Constructor
+Let's go ahead, you noticed that I'm using typescript, fell free to use javascript, your first step is to write the constructor method, `constructor` need to receive the reducers and the initialState, let's do that:
+
+```typescript
+class Store{
+    //...
+    constructor(reducers={}, initialState={}){
+        this.reducers = reducers
+        this.state = initialState
+    }
+    //...
+}
+```
+
+Here we are assign `reducers` and `initialState` to `state` and `reducers` properties.
+
+Using it:
+
+```typescript
+    const reducers = {
+        todoReducer:(state, action)=>({...})
+    }
+
+    const initialState = {
+        todoReducer:{todos:[]}
+    }
+
+    const store = new Store(reducers, initialState)
+```
+
+### Reduce
+As I told some paragraphs ago, reduce will perform and return the state changed.
+
+```typescript
+class Store{
+    //...
+    private reduce(state, action) {
+        const newState = {}
+        for (const prop in this.reducers) {
+        newState[prop] = this.reducers[prop](state[prop], action)
+        }
+        return newState
+    }
+}
+```
+
+Here we are iterate reducers registered in Store and invoking every reducer passing by argument the current state and the current action, after that we save the result returned by every reducer in the correct state property. Finally we return a new state. Since the reduce method is a private method it will not available to use out.
+
+## Subscribe
+Subscribe will alow us to have many state change listeners, let's implement it.
+
+```typescript
+class Store{
+    //...
+    subscribe(fn:Function){
+        this.subscribers = [...this.subscribers, fn];
+
+        return ()=>{
+            thi.subscribers = this.subscribers.filter(subscriber=> subscriber !== fn)
+        }
+    }
+}
+```
+
+Here we received a function that will be invoked when some changes happens in the state, `subscriber` will add the `fn` argument into `subscribers` property. The last part of this methods will return another function that when invoked will remove the `fn` function passed by argument. The function that will be returned knows the `subscriber` method context, for this reason we can compare `fn` argument with every subscriber registered in your Store and decide who needs be removed.
+
+Using it:
+
+```typescript
+    //...
+    const store = new Store(reducers, initialState)
+
+    function callback(state){
+        // do something
+    }
+
+    const unsubscribe = store.subscribe(callback)
+
+    unsubscribe()// wii remove callback function
+```
+
+
+### Dispatch
+
+Let's implement this method and learn how it works.
+
+```typescript
+class Store{
+    //...
+    dispatch(action) {
+        this.reduce(this.state, action)
+    }
 }
 ```
