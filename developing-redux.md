@@ -1,0 +1,3 @@
+# Developing redux
+
+If you are a software developer and aren't in another world you probably read or hear something about redux, redux todays is very popular but not so popular then some years ago, the first time that I hear about reactjs the second word was always redux, "How to init with react and redux", "Todo app with react redux" and another hundred names. Even redux is not so popular than the past I think it's very helpful that you know how redux works and how you can create a simple version of this famous library.
