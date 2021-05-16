@@ -67,6 +67,8 @@ Okay, we need more than methods in your redux implementation, we need a property
 class Store{
     private state:{[key:string]:any}
     private reducers:{[key:string]:Function}
+    private subscribers: Array<Function>;
+
     //...
 }
 ```
@@ -93,7 +95,7 @@ Using it:
 
 ```typescript
     const reducers = {
-        todoReducer:(state, action)=>({...})
+        todoReducer:(state, action) => ({...})
     }
 
     const initialState = {
@@ -130,8 +132,8 @@ class Store{
     subscribe(fn:Function){
         this.subscribers = [...this.subscribers, fn];
 
-        return ()=>{
-            thi.subscribers = this.subscribers.filter(subscriber=> subscriber !== fn)
+        return () => {
+            thi.subscribers = this.subscribers.filter(subscriber => subscriber !== fn)
         }
     }
 }
@@ -163,7 +165,10 @@ Let's implement this method and learn how it works.
 class Store{
     //...
     dispatch(action) {
-        this.reduce(this.state, action)
+        this.state = this.reduce(this.state, action)
+        this.subscribers.forEach(fn => fn(this.state))
     }
 }
 ```
+
+When `reduce` method is invoked it's return a new state and assign to `state` property, after that we iterate `subscribers` property and invoking every subscribed function passing the new state by argument.
