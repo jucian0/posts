@@ -171,4 +171,64 @@ class Store{
 }
 ```
 
-When `reduce` method is invoked it's return a new state and assign to `state` property, after that we iterate `subscribers` property and invoking every subscribed function passing the new state by argument.
+When `reduce` method is invoked it's return a new state and assign to `state` property of store, after that we iterate `subscribers` property and invoking every subscribed function passing the new state by argument, this way every listener will be notified with the new application state.
+
+Using it:
+
+```typescript
+//...
+const store = new Store(reducers, initialState)
+
+const action = {
+    type:'ADD_TODO',
+    payload: {label:'Push up', complete:false}
+} 
+
+store.dispatch(action)
+```
+
+## Final code
+
+```typescript
+class Store {
+  private subscribers: Function[]
+  private reducers: { [key: string]: Function }
+  private state: { [key: string]: any }
+
+  constructor(reducers = {}, initialState = {}) {
+    this.subscribers = []
+    this.reducers = reducers
+    this.state = this.reduce(initialState, {})
+  }
+
+  get value() {
+    return this.state;
+  }
+
+  subscribe(fn) {
+    this.subscribers = [...this.subscribers, fn]
+    fn(this.value)
+    return () => {
+      this.subscribers = this.subscribers.filter(sub => sub !== fn)
+    }
+  }
+
+  dispatch(action) {
+    this.state = this.reduce(this.state, action)
+    this.subscribers.forEach(fn => fn(this.value))
+  }
+
+  private reduce(state, action) {
+    const newState = {}
+    for (const prop in this.reducers) {
+      newState[prop] = this.reducers[prop](state[prop], action)
+    }
+    return newState
+  }
+}
+
+```
+
+Finally we have a simple implementation of redux, this implementation not reflect any redux library implementation, it's just a possible implementation of redux. The principal goal of this post is show you the simple way how redux works. If you are more interested in a functional approach let me know and we can do it in the next post.
+
+I hope that you enjoyed this post. Stay Safe!!!
