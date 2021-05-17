@@ -28,7 +28,7 @@ Since Redux is very popular I hope that you know how it works and how to use it,
     ```
 - Store - I like to think about Store as a place where you have the real state, and it provides the resources to get the state `store.getState()`, and register listeners.
 
-## Your Redux API
+## Our Redux API
 
 This is how we will initiate our Store.
 
