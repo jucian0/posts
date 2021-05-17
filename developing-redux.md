@@ -16,7 +16,7 @@ Since Redux is very popular I hope that you know how it works and how to use it,
         payload: {label:'Push up', complete:false}
     } 
     ```
-- Reducers - reducers are pure functions that perform your intentions in state application, that function receives the current state and the action, that is running. For every action you should provide a reaction in your reducer.
+- Reducers - reducers are pure functions that perform your intentions in state application, that function receives the current state and the action, that is running. For every action, you should provide a reaction in your reducer.
 
     ```typescript
     function reducer(state, action){
@@ -39,8 +39,8 @@ const store = new Store(reducers, initialState)
 Your redux implementation has some public methods and private method:
 
   - dispatch() - This method will receive the instruction that will drive how the state will be changed.
-  - subscriber() - With this method we can subscriber listeners know when the applications state is changed, this listeners will be simple functions that can receives the new state changed by argument.
-  - getValue() - This methods will return the current state of application.
+  - subscriber() - With this method, we can subscribe listeners to know when the application state is changed, these listeners will be simple functions that can receive the new state changed by argument.
+  - getValue() - These methods will return the current state of the application.
 
 ```typescript
 class Store{
@@ -52,7 +52,7 @@ class Store{
 }
 ```
 
-We need another method do perform the state changes, `reducer` is the last méthod that we need in your implementation.
+We need another method to perform the state changes, `reducer` is the last méthod that we need in your implementation.
 
 ```typescript
 class Store{
@@ -121,10 +121,10 @@ class Store{
 }
 ```
 
-Here we are iterate reducers registered in Store and invoking every reducer passing by argument the current state and the current action, after that we save the result returned by every reducer in the correct state property. Finally we return a new state. Since the reduce method is a private method it will not available to use out.
+Here we are iterate reducers registered in Store and invoking every reducer passing by argument the current state and the current action, after that, we save the result returned by every reducer in the correct state property. Finally, we return the new state. Since the reduce method is a private method it will not available to use out.
 
 ## Subscribe
-Subscribe will alow us to have many state change listeners, let's implement it.
+Subscribe will allow us to have many state change listeners, let's implement it.
 
 ```typescript
 class Store{
@@ -139,7 +139,7 @@ class Store{
 }
 ```
 
-Here we received a function that will be invoked when some changes happens in the state, `subscriber` will add the `fn` argument into `subscribers` property. The last part of this methods will return another function that when invoked will remove the `fn` function passed by argument. The function that will be returned knows the `subscriber` method context, for this reason we can compare `fn` argument with every subscriber registered in your Store and decide who needs be removed.
+Here we received a function that will be invoked when some changes happen in the state, `subscriber` will add the `fn` argument into `subscribers` property. The last part of this method will return another function that when invoked will remove the `fn` function passed by argument. The function that will be returned knows the `subscriber` method context, for this reason, we can compare `fn` argument with every subscriber registered in our Store and decide who needs are removed.
 
 Using it:
 
@@ -171,7 +171,7 @@ class Store{
 }
 ```
 
-When `reduce` method is invoked it's return a new state and assign to `state` property of store, after that we iterate `subscribers` property and invoking every subscribed function passing the new state by argument, this way every listener will be notified with the new application state.
+When `reduce` method is invoked it returns a new state and assign it to `state` property of the store, after that, we iterate `subscribers` property and invoking every subscribed function passing the new state by argument, this way every listener will be notified with the new application state.
 
 Using it:
 
@@ -229,6 +229,6 @@ class Store {
 
 ```
 
-Finally we have a simple implementation of redux, this implementation not reflect any redux library implementation, it's just a possible implementation of redux. The principal goal of this post is show you the simple way how redux works. If you are more interested in a functional approach let me know and we can do it in the next post.
+Finally, we have a simple implementation of redux, this implementation does not reflect any redux library implementation, it's just a possible implementation of redux. The principal goal of this post is to show you the simple way how redux works. If you are more interested in a functional approach let me know and we can do it in the next post.
 
 I hope that you enjoyed this post. Stay Safe!!!
