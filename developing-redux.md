@@ -40,7 +40,7 @@ Our redux implementation has some public methods and private method:
 
   - dispatch() - This method will receive the instruction that will drive how the state will be changed.
   - subscriber() - With this method, we can subscribe listeners to know when the application state is changed, these listeners will be simple functions that can receive the new state changed by argument.
-  - getValue() - These methods will return the current state of the application.
+  - value() - These methods will return the current state of the application.
 
 ```typescript
 class Store{
@@ -186,6 +186,20 @@ const action = {
 
 store.dispatch(action)
 ```
+
+### Value
+
+Our last method implementation will be a get method that will return us the current state, let's implement it:
+
+```typescript
+class Store{
+    //...
+  get value() {
+    return this.state;
+  }
+}
+```
+
 
 ## Final code
 
