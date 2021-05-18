@@ -1,14 +1,14 @@
 # Developing redux
 
-If you are a software developer and aren't in another world you probably read or hear something about redux, redux today is very popular but not so popular like some years ago, the first time that I heard about React the second word was always redux , "How to init with react and redux", "Todo app with react redux" and another hundred names. Even that redux is not so popular today as in the past, I think it's very helpful that you know how redux works and how you can create a simple version of this famous pattern.
+If you are a software developer and aren't in another world you probably read or hear something about redux, redux today is very popular but not so popular like some years ago, the first time that I heard about React the second word was always redux , "How to start with react and redux", "Todo app with react redux" and another hundred names. Even that redux is not so popular today as in the past, I think it's very helpful that you know how redux works and how you can create a simple version of this famous pattern.
 
-Redux is a pattern that provides a way to manage application state, redux pattern turned very popular when front-end applications turned more complex and when we started to develop applications with many components and these sharing the same state. You can find a lot of libraries that implement this, we have Redux for React and RXJS for Angular.
+Redux is a pattern that provides a way to manage application state, redux pattern turned very popular when front-end applications turned more complex and when we started to develop applications with many components and these sharing the same state. You can find many libraries that implement this, we have Redux for React and RXJS for Angular.
 
 Since Redux is very popular I hope that you know how it works and how to use it, I will provide some basic descriptions about it, but if you want to know more about I recommend that you read the documentation about the patterns and how some libraries do this.
 
 ## Redux explanations
 
- - Actions - you can understand actions basically like instructions that drive your intentions, you need a `type` that describes what you want to do, and if you need some data to perform your intentions it's necessary to provide a `payload`.
+- Actions - you can understand actions basically like instructions that drive your intentions, you need a `type` that describes what you want to do, and if you need some data to perform your intentions it's necessary to provide a `payload`.
 
     ```typescript
     const action = {
