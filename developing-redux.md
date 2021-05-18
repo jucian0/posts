@@ -1,14 +1,14 @@
 # Developing redux
 
-If you are a software developer and aren't in another world you probably read or hear something about redux, redux today is very popular but not so popular like some years ago, the first time that I heard about React the second word was always redux , "How to start with react and redux", "Todo app with react redux" and another hundred names. Even that redux is not so popular today as in the past, I think it's very helpful that you know how redux works and how you can create a simple version of this famous pattern.
+If you are a software developer and aren't in another world, you have probably read or heard something about Redux. Today Redux is very popular, but not as much as some years ago. The first time that I heard about React, the second word was always Redux, "How to init with react and redux", "Todo app with react redux", and another hundred names. Even though Redux is not as popular today as in the past, I think it's very helpful that you know how Redux works and how you can create a simple version of this famous pattern. 
 
-Redux is a pattern that provides a way to manage application state, redux pattern turned very popular when front-end applications turned more complex and when we started to develop applications with many components and these sharing the same state. You can find many libraries that implement this, we have Redux for React and RXJS for Angular.
+Redux is a pattern that provides a way to manage your application state. Redux pattern increased in popularity when front-end applications became more complex, and when we started to develop applications with many components, sharing the same state. You can find a lot of libraries that implement this, we have Redux for React and RXJS for Angular. 
 
-Since Redux is very popular I hope that you know how it works and how to use it, I will provide some basic descriptions about it, but if you want to know more about I recommend that you read the documentation about the patterns and how some libraries do this.
+Since Redux is very popular I assume that you know how it works and how to use it, but I will provide some basic information about it. If you want to know more, however, I recommend that you read the documentation about the patterns and how some libraries do this. 
 
 ## Redux explanations
 
-- Actions - you can understand actions basically like instructions that drive your intentions, you need a `type` that describes what you want to do, and if you need some data to perform your intentions it's necessary to provide a `payload`.
+- Actions - basically actions are like instructions that drive your intentions, you need a `type` that describes what you want to do, and if you need some data to perform your intentions, it's necessary to provide a `payload`. 
 
     ```typescript
     const action = {
@@ -39,7 +39,7 @@ const store = new Store(reducers, initialState)
 Our redux implementation has some public methods and private method:
 
   - dispatch() - This method will receive the instruction that will drive how the state will be changed.
-  - subscriber() - With this method, we can subscribe listeners to know when the application state is changed, these listeners will be simple functions that can receive the new state changed by argument.
+  - subscriber() - With this method, we can subscribe listeners to know when the application state is changed. These listeners will be simple functions that can receive the new state changed by argument.
   - value() - These methods will return the current state of the application.
 
 ```typescript
@@ -52,7 +52,7 @@ class Store{
 }
 ```
 
-We need another method to perform the state changes, `reducer` is the last méthod that we need in our implementation.
+We need another method to perform the state changes, `reducer` is the last method that we need in our implementation.
 
 ```typescript
 class Store{
@@ -76,7 +76,7 @@ class Store{
 ## Implementation
 
 ### Constructor
-Let's go ahead, you noticed that I'm using typescript, feel free to use javascript, our first step is to write the constructor method, `constructor` need to receive the reducers and the initialState, let's do that:
+Let's go ahead. You may notice that I'm using typescript, but feel free to use javascript. Our first step is to write the constructor method, `constructor` needs to receive the reducers and the initialState, so let's do that: 
 
 ```typescript
 class Store{
@@ -89,7 +89,7 @@ class Store{
 }
 ```
 
-Here we are assign `reducers` and `initialState` to `state` and `reducers` properties.
+Here we assign `reducers` and `initialState` to `state` and `reducers` properties.
 
 Using it:
 
@@ -106,7 +106,7 @@ Using it:
 ```
 
 ### Reduce
-As I told some paragraphs ago, reduce will perform and return the state changed.
+As I mentioned earlier, reduce will perform and return the state changed.
 
 ```typescript
 class Store{
@@ -121,10 +121,10 @@ class Store{
 }
 ```
 
-Here we are iterate reducers registered in Store and invoking every reducer passing by argument the current state and the current action, after that, we save the result returned by every reducer in the correct state property. Finally, we return to the new state. Since the reduce method is a private method it will not be available to use out of class.
+Here we iterate reducers registered in Store and invoke every reducer passing by argument the current state and the current action. After that, we save the result returned by every reducer in the correct state property. Finally, we return to the new state. Since the reduce method is a private method it will not be available to use out of class.
 
 ## Subscribe
-Subscribe will allow us to have many state change listeners, let's implement it.
+Subscribe will allow us to have many state change listeners, so let's implement it.
 
 ```typescript
 class Store{
@@ -139,7 +139,7 @@ class Store{
 }
 ```
 
-Here we received a function that will be invoked when some changes happen in the state, `subscriber` will add the `fn` argument into `subscribers` property. The last part of this method will return another function that when invoked will remove the `fn` function passed by argument. The function that will be returned knows the `subscriber` method context, for this reason, we can compare `fn` argument with every subscriber registered in our Store and decide who needs are removed.
+Here we received a function that will be invoked when some changes happen in the state, `subscriber` will add the `fn` argument into `subscribers` property. The last part of this method will return another function that when invoked will remove the `fn` function passed by argument. The function that will be returned knows the `subscriber` method context, for this reason, we can compare `fn` argument with every subscriber registered in our Store and decide who needs to be removed.
 
 Using it:
 
@@ -171,7 +171,7 @@ class Store{
 }
 ```
 
-When `reduce` method is invoked it returns a new state and assign it to `state` property of the store, after that, we iterate `subscribers` property and invoking every subscribed function passing the new state by argument, this way every listener will be notified with the new application state.
+When `reduce` method is invoked it returns a new state and assigns it to `state` property of the store. After that, we iterate `subscribers` property and invoke every subscribed function passing the new state by argument, this way every listener will be notified with the new application state.
 
 Using it:
 
@@ -243,6 +243,6 @@ class Store {
 
 ```
 
-Finally, we have a simple implementation of redux, this implementation does not reflect any redux library implementation, it's just a possible implementation of redux. The principal goal of this post is to show you a simple way how redux works. If you are more interested in a functional approach let me know and we can do it in the next post.
+Finally, we have a simple implementation of redux, this implementation does not reflect any redux library implementation, it's just a possible implementation of redux. The principal goal of this post is to show you a simple way of how redux works. If you are more interested in a functional approach, let me know and we can address it in the next post.
 
 I hope that you enjoyed this post. Stay Safe!!!
