@@ -240,7 +240,6 @@ class Store {
     return newState
   }
 }
-
 ```
 
 Finally, we have a simple implementation of redux, this implementation does not reflect any redux library implementation, it's just a possible implementation of redux. The principal goal of this post is to show you a simple way of how redux works. If you are more interested in a functional approach, let me know and we can address it in the next post.
