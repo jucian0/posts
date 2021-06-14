@@ -72,3 +72,106 @@ import App from "./App";
 
 ReactDOM.render(<App />, document.getElementById("root"));
 ```
+
+## Forms with controlled input
+
+Forms with controlled inputs are the most common example including in libraries. In this approach in every time that the input value is changed the component is rendered again, we save the input value in a specific state:
+
+```jsx
+function Input() {
+  const [input, setInput] = useState("");
+
+  return <input name="input" onChange={(e) => setInput(e.target.value)} />;
+}
+```
+
+I will create a folder for every component, this way the files should have the name `index.jsx`.
+
+For this form I will create a component in `Components/FormControlled/Input`, this component will be responsible to show a label, a input, and in case of error an span with an error message.In this component we should validate if the input was touched or not, it's helpful to show error messages.
+
+```jsx
+import React, { useRef, useEffect, ChangeEvent, useState } from "react";
+
+function Input({ error, label, ...rest }) {
+  const [touched, setTouched] = useState(false);
+
+  return (
+    <>
+      <label htmlFor={rest.name}>{label}</label>
+      <input
+        className="form-control"
+        {...rest}
+        onBlur={() => setTouched(true)}
+      />
+      <span className="text-danger">{touched && error}</span>
+    </>
+  );
+}
+
+export default Input;
+```
+
+The principal component will be `Components/FormControlled`, well this component where we will build our form, let's implement it:
+
+```jsx
+import React, { useState, useEffect } from "react";
+import Input from "./Input";
+import {FormValidations} from './index.validations'
+import useValidation from './../../hooks/useValidation'
+
+const initialFormState = {
+   name:'',
+   email:'',
+   password:''
+}
+
+const function(){
+
+   const [form, setForm] = useState(initialFormState)
+
+   function setInputCure(inputName){
+      return (e)=>{
+         const newValue = {[inputName]:e.target.value}
+              return setForm(form => ({...form, ...newValue}))
+      }
+   }
+
+   return (
+      <>
+         <h3>Form Controlled</h3>
+         <form>
+               <div className="form-group">
+                  <Input
+                     name="name"
+                     onChange={setInputCure('name')}
+                     label="Name"
+                     value={form.name}
+                  />
+               </div>
+               <div className="form-group">
+                  <Input
+                     name="email"
+                     onChange={setInputCure('email')}
+                     label="E-mail"
+                     value={form.email}
+                  />
+               </div>
+               <div className="form-group">
+                  <Input
+                     name="password"
+                     onChange={setInputCure('password')}
+                     label="Password"
+                     value={form.password}
+                  />
+               </div>
+
+               <div className="form-group">
+                  <button type="button" className="btn btn-primary">Submit</button>
+               </div>
+         </form>
+      </>
+   );
+}
+
+export default UserForm;
+```
