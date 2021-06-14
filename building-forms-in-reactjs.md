@@ -286,7 +286,18 @@ export default UserForm;
 
 - Added news state to save errors.
 - Added a function named `validate`, this function should receive the form values and pass this value to object validation wrote in the last step. If the form state has a valid value we set an empty object in errors state, but if has any error we should know if is an error of validation, for this we need to know if is a ValidationError instance before to set them in the errors state.
+- In order to update the errors every time that form is changed we pass form state as a dependency in useEffect hook.
+- Added object error with the specif property in every field.
 
 If you run again the application you will see the form working well with validation.
 
 ![form](https://res.cloudinary.com/practicaldev/image/fetch/s--jdctQqlV--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/2000/1%2ATGVW5G3z762WRaeqteXEZw.png)
+
+## Improving our solution.
+
+I think that we can improve our code, we can split some parts of our code and create a new hook to turn the code more understandable and clean.
+
+### Creating a hook useValidation
+
+First of all I will create a folder called Hooks in the root of application `Hooks/useValidation`, inside the folder I will create a file called `index.js`.
+Inside this file we just need to put part of our code, `validate` function, useEffect hook, and the errors state.
