@@ -175,3 +175,35 @@ const function(){
 
 export default UserForm;
 ```
+
+In order to have the application working we need to make some changes in `App.js`.
+
+```jsx
+import React from "react";
+import FormControlled from "./Components/FormControlled";
+
+function App() {
+  return (
+    <div className="container-fluid">
+      <div className="row">
+        <div className="col-lg-6 col-md-6">
+          {/* vai receber segundo abordagem */}
+        </div>
+        <div className="col-lg-6 col-md-6">
+          <FormControlled />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default App;
+```
+
+```bash
+yarn start
+```
+
+## Adding field validations
+
+As mentioned before we will use Yup to create input validations, I believe that this is the best option to create validations, because this package give us a great quantity of resources that if we needed to write we would expand a lot of time.
