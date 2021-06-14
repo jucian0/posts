@@ -116,8 +116,6 @@ The principal component will be `Components/FormControlled`, well this component
 ```jsx
 import React, { useState, useEffect } from "react";
 import Input from "./Input";
-import {FormValidations} from './index.validations'
-import useValidation from './../../hooks/useValidation'
 
 const initialFormState = {
    name:'',
@@ -206,4 +204,80 @@ yarn start
 
 ## Adding field validations
 
-As mentioned before we will use Yup to create input validations, I believe that this is the best option to create validations, because this package give us a great quantity of resources that if we needed to write we would expand a lot of time.
+As mentioned before we will use Yup to create input validations, I believe that this is the best option to create validations, because this package give us a great quantity of resources that if we needed to write all them we would expand a lot of time.
+
+In this case I'm creating an object with the same structure as our form state, and adding some roles that should be applied, after that I add the message errors.
+
+```javascript
+import * as yup from "yup";
+
+export const FormValidations = yup.object().shape({
+  name: yup.string().required("Name is required"),
+  email: yup.string().email("E-mail is invalid").required("E-mail is required"),
+  password: yup.string().min(8, "Minimum 8 chars").max(20, "Max 20 chars"),
+});
+```
+
+Let's back to the `Components/FormControlled` and add this validation in our form.
+
+```jsx
+ /*...................*/
+import {FormValidations} from './index.validations'
+import useValidation from './../../hooks/useValidation'
+
+ /*...................*/
+
+const function(){
+ /*...................*/
+   const [error, setErrors] = useState({})
+
+   async function validate(){
+      try{
+         await formValidations.validate(form, {abortEarly:true})
+         setErrors({})
+      }catch(e){
+         if(e instanceof ValidationError){
+            const errors = {}
+            e.inner.forEach(key=>{
+               errors[key.path] = key.message
+            })
+            setErrors(errors)
+         }
+      }
+   }
+
+   useEffect(()=>{validate()},[form])
+
+   return (
+      <>
+         <h3>Form Controlled</h3>
+         <form>
+               <div className="form-group">
+                  <Input
+                     /*...................*/
+                     error={error.name}
+                  />
+               </div>
+               <div className="form-group">
+                  <Input
+                     /*...................*/
+                     error={error.email}
+                  />
+               </div>
+               <div className="form-group">
+                  <Input
+                     /*...................*/
+                     error={error.password}
+                  />
+               </div>
+
+               <div className="form-group">
+                  <button type="button" className="btn btn-primary">Submit</button>
+               </div>
+         </form>
+      </>
+   );
+}
+
+export default UserForm;
+```
