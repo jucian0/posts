@@ -416,4 +416,4 @@ export default UserForm;
 Look at the complete code in github: https://github.com/Jucian0/react-form-controlled
 Codesandbox: https://codesandbox.io/s/controled-form-tutorial-yt4oj
 
-In the next post, I will show you a way to improve this code to turn it more performative.
+In the next post I will show you how to improve this code to make it perform better.
