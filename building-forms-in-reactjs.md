@@ -127,7 +127,7 @@ const function(){
 
    const [form, setForm] = useState(initialFormState)
 
-   function setInputCure(inputName){
+   function setInput(inputName){
       return (e)=>{
          const newValue = {[inputName]:e.target.value}
               return setForm(form => ({...form, ...newValue}))
@@ -141,7 +141,7 @@ const function(){
                <div className="form-group">
                   <Input
                      name="name"
-                     onChange={setInputCure('name')}
+                     onChange={setInput('name')}
                      label="Name"
                      value={form.name}
                   />
@@ -149,7 +149,7 @@ const function(){
                <div className="form-group">
                   <Input
                      name="email"
-                     onChange={setInputCure('email')}
+                     onChange={setInput('email')}
                      label="E-mail"
                      value={form.email}
                   />
@@ -157,7 +157,7 @@ const function(){
                <div className="form-group">
                   <Input
                      name="password"
-                     onChange={setInputCure('password')}
+                     onChange={setInput('password')}
                      label="Password"
                      value={form.password}
                   />
@@ -333,3 +333,90 @@ const useValidation = (values, schema) => {
 
 export default useValidation;
 ```
+
+## Improving form component
+
+I just need to remove the code that was added in `useValidation` hook, and import the new hook.
+
+```jsx
+import React, { useState, useEffect } from "react";
+import Input from "./Input";
+import { FormValidations } from "./index.validations";
+import useValidation from "./../../hooks/useValidation";
+
+const initialFormState = {
+  name: "",
+  email: "",
+  password: "",
+};
+
+const UserForm = () => {
+  const [form, setForm] = useState(initialFormState);
+  const { errors } = useValidation(form, FormValidations);
+
+  function setInput(inputName) {
+    return (e) => {
+      const newValue = { [inputName]: e.target.value };
+      return setForm((form) => ({ ...form, ...newValue }));
+    };
+  }
+
+  return (
+    <>
+      <h3>Form Controlled</h3>
+      <form>
+        <div className="form-group">
+          <Input
+            name="name"
+            onChange={setInput("name")}
+            label="Name"
+            value={form.name}
+            error={errors.name}
+          />
+        </div>
+        <div className="form-group">
+          <Input
+            name="email"
+            onChange={setInput("email")}
+            label="E-mail"
+            value={form.email}
+            error={errors.email}
+          />
+        </div>
+        <div className="form-group">
+          <Input
+            name="password"
+            onChange={setInput("password")}
+            label="Password"
+            value={form.password}
+            error={errors.password}
+          />
+        </div>
+
+        <div className="form-group">
+          <button type="button" className="btn btn-primary">
+            Submit
+          </button>
+        </div>
+      </form>
+    </>
+  );
+};
+
+export default UserForm;
+```
+
+## Advantages
+
+- Simple code.
+- Validation in every change give us a better experience.
+
+## Disadvantages
+
+- This isn't the better approach if you want the better perform.
+- The component is rendered again in every time that the state os changed.
+
+Look the complete code in github: https://github.com/Jucian0/react-form-controlled
+Codesandbox:
+
+In the next post I will show you a way to improve this code to turn it more performative.
