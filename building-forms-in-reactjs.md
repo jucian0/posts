@@ -1,15 +1,16 @@
 Do you really need a form library to build forms in React?
 
-Hello friends, today I will talk with you about forms in React, and tell you how was my first experience building form in React.
+Hello friends, today I will talk to you about forms in React, and tell you how my first experience building form in React was.
 
-My relation with React when was about forms was a love-hate relationship, and this happened because react doesn't say you how everything should work, another reason was that Angular has a powerful solution to build forms(Yeah I've worked with Angular before), and honestly I never found anything so good than reactive forms in React ecosystem.
-But everything is changed when React team introduced Hooks API, after that the process to create forms become very simple, after that, I started to think if it was really necessary to use a form library to implement forms in React. In this post, I will show you an easy way to build forms without any form library, and at the end of this post you will decide if it's really necessary to use a form library, however, regardless of your opinion, I hope that you learn something in this post.
+My relationship with React when I created forms was a love-hate relationship, because React doesn't tell you how everything should work. Another reason was that Angular has a powerful solution to build forms (yeah, I've worked with Angular before), and honestly, I never found anything as good as reactive forms in React ecosystem. But everything changed when the React team introduced Hooks API, after that the process to create forms became very simple, and I started to think if it was really necessary to use a form library to implement forms in React.
 
-Let's start with the first example of how to implement a form without a form library, in this example, I will explore an effective way to create advanced components form.
+In this post, I will show you an easy way to build forms without any form library, and at the end of this post you will decide if it's really necessary to use a form library, however, regardless of your opinion, I hope that you learn something in this post.
+
+Let's start with the first example of how to implement a form without a form library. In this example, I will explore an effective way to create an advanced components form.
 
 ## Basic requirements?
 
-To perform this tutorial you need to fullfil some requisites:
+To perform this tutorial you will need to have:
 
 - Basic knowledge of Javascript.
 - Basic knowledge of React.
@@ -28,16 +29,16 @@ yarn
 yarn start
 ```
 
-We are creating an application, opening the application directory, installing dependencies, and start the application.
+We are creating an application, opening the application directory, installing dependencies, and starting the application.
 
-Form libraries can be optional, but if you want good validation in your forms you should use a library form validation, for this tutorial I will use Yup, since that our goal is to learn how to implement good forms, to turn our work easier we are going to use Bootstrap.
+Form libraries can be optional, but if you want good validation in your forms you should use a library form validation. For this tutorial I will use Yup, since that our goal is to learn how to implement good forms, I will use Bootstrap to work more easily.
 
 ```bash
 yarn add bootstrap
 yarn add yup
 ```
 
-The create-react-app create some files that we will not use for this tutorial, for this reason, I will remove them.
+The create-react-app creates some files that we will not use for this tutorial, for this reason, I will remove them, so the files structures are:
 
 ![files structure](https://res.cloudinary.com/practicaldev/image/fetch/s--rDtSgnqF--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/2000/1%2AP8fTwj1DIETEFG6BlOf5iA.png)
 
@@ -74,7 +75,7 @@ ReactDOM.render(<App />, document.getElementById("root"));
 
 ## Forms with controlled input
 
-Forms with controlled inputs are the most common example including in libraries. In this approach in every time that the input value is changed the component is rendered again, we save the input value in a specific state:
+Forms with controlled inputs are the most common example included in libraries. In this approach, every time that the input value is changed the component is rendered again, so we save the input value in a specific state:
 
 ```jsx
 function Input() {
@@ -84,9 +85,9 @@ function Input() {
 }
 ```
 
-I will create a folder for every component, this way the files should have the name `index.jsx`.
+I will create a folder for every component, this way the files should have the name `index.jsx`.
 
-For this form I will create a component in `Components/FormControlled/Input`, this component will be responsible to show a label, an input, and in case of error a span with an error message.In this component we should validate if the input was touched or not, this is helpful to show error messages.
+For this form I will create a component in `Components/FormControlled/Input`, this component will be responsible to show a label, an input, and in case of error, a span with an error message. In this component we should validate whether the input was touched or not, it's helpful to show error messages.
 
 ```jsx
 import React, { useRef, useEffect, ChangeEvent, useState } from "react";
@@ -110,7 +111,7 @@ function Input({ error, label, ...rest }) {
 export default Input;
 ```
 
-The principal component will be `Components/FormControlled`, well this component where we will build our form, let's implement it:
+The principal component will be `Components/FormControlled`, this is the component where we will build our form, so let's implement it:
 
 ```jsx
 import React, { useState, useEffect } from "react";
@@ -173,7 +174,7 @@ const function(){
 export default UserForm;
 ```
 
-In order to have the application working, we need to make some changes in `App.js`.
+In order to have the application working, we need to make some changes in `App.js`.
 
 ```jsx
 import React from "react";
@@ -203,9 +204,9 @@ yarn start
 
 ## Adding field validations
 
-As mentioned before, we will use Yup to create input validations, I believe that this is the best option to create validations, because this package gives us a great number of resources that if we needed to write all them we would lose a lot of time.
+As mentioned before, we will use Yup to create input validations, I believe that this is the best option to create validations because this package gives us a great number of resources which saves us time in having to write them.
 
-In this case, I'm creating an object with the same structure as our state form, and adding some roles that should be applied, after that, I add the message errors.
+In this case, I'm creating an object with the same structure as our form state, and adding some roles that should be applied, after that I add the message errors.
 
 ```javascript
 import * as yup from "yup";
@@ -284,21 +285,19 @@ export default UserForm;
 ## Let's look at some changes
 
 - Added news state to save errors.
-- Added a function named `validate`, this function should receive the form values and pass this value to object validation wrote in the last step. If the form state has a valid value we set an empty object in the errors state, but if it has any error we should know if is an error of validation, we need to know if is a ValidationError instance before setting them in the errors state.
-- To update the errors every time that form is changed we pass form state as a dependency in the `useEffect` hook.
-- Added object error with the specif property in every field.
-  If you run again the application you will see the form working well with validation.
+- Added a function named validate, this function should receive the form values and pass this value to object validation written in the last step. If the form state has a valid value, we set an empty object in the errors state, but if it has any error, we need to know if is an error of validation (ValidationError instance), before setting them in the errors state.
+- To update the errors every time that form is changed, we pass form state as a dependency in the useEffect hook.
+- Added object error with the specific property in every field. If you run the application again you will see the form working well with validation.
 
 ![form](https://res.cloudinary.com/practicaldev/image/fetch/s--jdctQqlV--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/2000/1%2ATGVW5G3z762WRaeqteXEZw.png)
 
 ## Improving our solution.
 
-I think that we can improve our code, we can split some parts of our code and create a new hook to turn the code more understandable and clean.
+I think that we can improve our code, we can split some parts of our code and create a new hook to make the code more understandable and cleaner.
 
 ### Creating a hook useValidation
 
-First of all, I will create a folder called Hooks in the root of application `Hooks/useValidation`, inside the folder I will create a file called `index.js`.
-Inside this file, we just need to put part of our code, `validate` function, useEffect hook, and the error state. Finally, we return an object with the error state.
+First of all, I will create a folder called Hooks in the root of application `Hooks/useValidation`, inside the folder I will create a file called `index.js`. Inside this file, we just need to put part of our code, validate function, `useEffect` hook, and the error state. Finally, we return an object with the error state.
 
 ```javascript
 import React, { useState, useEffect } from "react";
@@ -406,8 +405,8 @@ export default UserForm;
 
 ## Advantages
 
-- Simple code.
-- Validation in every change give us a better experience.
+- It's is simple code.
+- Validation with every change give us a better experience.
 
 ## Disadvantages
 
