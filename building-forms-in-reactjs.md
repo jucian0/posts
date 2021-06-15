@@ -30,14 +30,14 @@ yarn start
 
 We are creating an application, opening the application directory, installing dependencies, and start the application.
 
-Form libraries can be optional, but if you want good validation in your forms you should use a library form validation, for this tutorial I will use Yup, since that our goal is to learn how to implement good forms, to turn our work easier we are going to use Bootstrap..
+Form libraries can be optional, but if you want good validation in your forms you should use a library form validation, for this tutorial I will use Yup, since that our goal is to learn how to implement good forms, to turn our work easier we are going to use Bootstrap.
 
 ```bash
 yarn add bootstrap
 yarn add yup
 ```
 
-The create-react-app create some files that we will not use for this tutorial, for this reason, I will remove them, look like the files structures are:
+The create-react-app create some files that we will not use for this tutorial, for this reason, I will remove them.
 
 ![files structure](https://res.cloudinary.com/practicaldev/image/fetch/s--rDtSgnqF--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/2000/1%2AP8fTwj1DIETEFG6BlOf5iA.png)
 
@@ -86,7 +86,7 @@ function Input() {
 
 I will create a folder for every component, this way the files should have the name `index.jsx`.
 
-For this form I will create a component in `Components/FormControlled/Input`, this component will be responsible to show a label, an input, and in case of error a span with an error message.In this component we should validate if the input was touched or not, it's helpful to show error messages.
+For this form I will create a component in `Components/FormControlled/Input`, this component will be responsible to show a label, an input, and in case of error a span with an error message.In this component we should validate if the input was touched or not, this is helpful to show error messages.
 
 ```jsx
 import React, { useRef, useEffect, ChangeEvent, useState } from "react";
@@ -203,9 +203,9 @@ yarn start
 
 ## Adding field validations
 
-As mentioned before we will use Yup to create input validations, I believe that this is the best option to create validations, because this package gives us a great number of resources that if we needed to write all them we would expand a lot of time.
+As mentioned before, we will use Yup to create input validations, I believe that this is the best option to create validations, because this package gives us a great number of resources that if we needed to write all them we would lose a lot of time.
 
-In this case, I'm creating an object with the same structure as our form state, and adding some roles that should be applied, after that I add the message errors.
+In this case, I'm creating an object with the same structure as our state form, and adding some roles that should be applied, after that, I add the message errors.
 
 ```javascript
 import * as yup from "yup";
@@ -417,4 +417,4 @@ export default UserForm;
 Look at the complete code in github: https://github.com/Jucian0/react-form-controlled
 Codesandbox: https://codesandbox.io/s/controled-form-tutorial-yt4oj
 
-In the next post I will show you a way to improve this code to turn it more performative.
+In the next post, I will show you a way to improve this code to turn it more performative.
