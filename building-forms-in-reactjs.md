@@ -4,7 +4,7 @@ Hello friends, today I will talk with you about forms in React, and tell you how
 
 My relation with React when was about forms was a love-hate relationship, and this happens because react doesn't say you how everything should works, other reason was because Angular has a powerful solution to build forms(Yeah I've worked with Angular before), and honestly I never found anything so good than reactive forms in React ecosystem.
 
-But everything is changed when React team introduced Hooks API, after that the process to create form become very simple, after that I started to thinks if was really necessary to use a form library to implement forms in React. In this post I show you how you two ways to build forms without any form library, and in the end of this post you will decide if is really necessary to use a form library, however regardless of your opinion I hope that you learn something in this post. Stay
+But everything is changed when React team introduced Hooks API, after that the process to create form become very simple, after that I started to thinks if was really necessary to use a form library to implement forms in React. In this post I will show you a easy way to build forms without any form library, and in the end of this post you will decide if it's really necessary to use a form library, however regardless of your opinion I hope that you learn something in this post. Stay
 
 Let's start with the first example of how to implement a form without a form library, in this example I will explore a effective way to create advanced components form.
 
@@ -300,4 +300,36 @@ I think that we can improve our code, we can split some parts of our code and cr
 ### Creating a hook useValidation
 
 First of all I will create a folder called Hooks in the root of application `Hooks/useValidation`, inside the folder I will create a file called `index.js`.
-Inside this file we just need to put part of our code, `validate` function, useEffect hook, and the errors state.
+Inside this file we just need to put part of our code, `validate` function, useEffect hook, and the errors state. Finally we return an object with the error state.
+
+```javascript
+import React, { useState, useEffect } from "react";
+import { ValidationError } from "yup";
+
+const useValidation = (values, schema) => {
+  const [errors, setErrors] = useState({});
+
+  const validate = async () => {
+    try {
+      await schema.validate(values, { abortEarly: false });
+      setErrors({});
+    } catch (e) {
+      if (e instanceof ValidationError) {
+        const errors = {};
+        e.inner.forEach((key) => {
+          errors[key.path] = key.message;
+        });
+        setErrors(errors);
+      }
+    }
+  };
+
+  useEffect(() => {
+    validate();
+  }, [values]);
+
+  return { errors };
+};
+
+export default useValidation;
+```
