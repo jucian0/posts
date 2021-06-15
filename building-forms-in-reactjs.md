@@ -174,6 +174,12 @@ const function(){
 export default UserForm;
 ```
 
+### What is happening here?
+
+- I'm creating a state for our form.
+- I have a function called setInput that receives the input name and return another function that receives the input change event, you can find more information about that [Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures).
+- After that I just return the template component with the Input component. I just need to pass the field name in `setInput` because this function will return a function that receives input change event as argument, and the second function know the context of the first function.
+
 In order to have the application working, we need to make some changes in `App.js`.
 
 ```jsx
