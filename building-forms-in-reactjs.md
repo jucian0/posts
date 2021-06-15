@@ -2,13 +2,14 @@ Do you really need a form library to build forms in React?
 
 Hello friends, today I will talk with you about forms in React, and tell you how was my first experience building form in React.
 
-My relation with React when was about forms was a love-hate relationship, and this happens because react doesn't say you how everything should work, another reason was that Angular has a powerful solution to build forms(Yeah I've worked with Angular before), and honestly I never found anything so good than reactive forms in React ecosystem.
-But everything is changed when React team introduced Hooks API, after that the process to create forms become very simple, after that, I started to think if it was really necessary to use a form library to implement forms in React. In this post, I will show you an easy way to build forms without any form library, and at the end of this post you will decide if it's really necessary to use a form library, however, regardless of your opinion, I hope that you learn something in this post. Stay
+My relation with React when was about forms was a love-hate relationship, and this happened because react doesn't say you how everything should work, another reason was that Angular has a powerful solution to build forms(Yeah I've worked with Angular before), and honestly I never found anything so good than reactive forms in React ecosystem.
+But everything is changed when React team introduced Hooks API, after that the process to create forms become very simple, after that, I started to think if it was really necessary to use a form library to implement forms in React. In this post, I will show you an easy way to build forms without any form library, and at the end of this post you will decide if it's really necessary to use a form library, however, regardless of your opinion, I hope that you learn something in this post.
+
 Let's start with the first example of how to implement a form without a form library, in this example, I will explore an effective way to create advanced components form.
 
 ## Basic requirements?
 
-To perform this tutorial you need to compliment some requisites:
+To perform this tutorial you need to fullfil some requisites:
 
 - Basic knowledge of Javascript.
 - Basic knowledge of React.
@@ -29,7 +30,7 @@ yarn start
 
 We are creating an application, opening the application directory, installing dependencies, and start the application.
 
-Form libraries can be optional, but if you want good validation in your forms you should use a form library validation, for this tutorial I will use Yup, since that our goal is to learn how to implement good forms I will use Bootstrap to turn more easily work.
+Form libraries can be optional, but if you want good validation in your forms you should use a library form validation, for this tutorial I will use Yup, since that our goal is to learn how to implement good forms, to turn our work easier we are going to use Bootstrap..
 
 ```bash
 yarn add bootstrap
