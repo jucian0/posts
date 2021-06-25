@@ -50,3 +50,49 @@ export function debounce(fn, wait, immediate) {
   };
 }
 ```
+
+So, a debounce function is a function that return another function, and that returned function run the function that we pass as argument into debounce function after a certain time that we should pass as argument into debounce function.
+
+```javascript
+const callbackFunction = () => {}; // it will be executed into returned function
+const time = 3000; // it's the delay time
+
+const returnedFunction = debounce(callbackFunction, time);
+
+returnedFunction(); // callbackFunction know my arguments
+```
+
+## Using debounce function into Input component
+
+I will use debounce function with `onChange` event from `input`, and add 500 milliseconds. This way the form state will change just after 500 milliseconds after the user stop to write.
+
+```jsx
+import React, { useState, useRef, useEffect, useCallback } from "react";
+import { debounce } from "../Debounce";
+
+function Input({ error, label, onChange, ...rest }) {
+  const [touched, setTouched] = useState(false);
+  const inputRef = useRef(null);
+  const debounceInput = useCallback(debounce(onChange, 500), [debounce]);
+  const blurInput = useCallback(() => setTouched(true), [setTouched]);
+
+  useEffect(() => {
+    inputRef.current.addEventListener("input", debounceInput);
+    inputRef.current.addEventListener("blur", blurInput);
+
+    return () => {
+      inputRef.current.removeEventListener("input", debounceInput);
+      inputRef.current.removeEventListener("blur", blurInput);
+    };
+  }, [blurInput, debounceInput, inputRef]);
+
+  return (
+    <>
+      <label htmlFor={rest.name}>{label}</label>
+      <input className="form-control" {...rest} ref={inputRef} />
+      <span className="text-danger">{touched && error}</span>
+    </>
+  );
+}
+export default Input;
+```
