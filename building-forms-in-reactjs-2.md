@@ -22,7 +22,7 @@ First of all you should clone the last example [here](https://github.com/Jucian0
 
 ### But, what it's means?
 
-First of all, higher-order function is extensively used in javascript, you probably are using it's even if you don't know.
+Higher-order function is extensively used in javascript, you probably are using it's even if you don't know.
 
 > Higher-Order function is a function that receives a function as an argument or returns the function as output.
 
@@ -96,3 +96,5 @@ function Input({ error, label, onChange, ...rest }) {
 }
 export default Input;
 ```
+
+### Bellow I explain every part of the code.
