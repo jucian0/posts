@@ -1,14 +1,14 @@
 Do you really need a form library to build forms in React?
 
-Hello friends, today I will continue talking to you about forms, this is the second post about forms, and I hope that this post helps you to learn something. In the post last time I showed to you an example of controlled form implementation, and today I want to show you another example focused on performance, we will develop a debounced form.
+Hello friends, today I will continue talking to you about forms, this is the second post about forms, and I hope that this post helps you to learn something. In the last post I showed to you an example of controlled form implementation, and today I want to show you another example focused on performance, we will develop a debounced form.
 
 If you are interested in the last post you can read [here](https://dev.to/jucian0/reactjs-building-forms-236m)
 
-Controlled forms are the most popular form implementation and we can find it in many libraries, one example is Formik, controlled form is not the only way that you can build forms with React, you can use an uncontrolled form, or debounced forms, let's see a brief explanation about it:
+Controlled forms are the most popular form implementation and we can find it in many libraries, one example is Formik, however controlled form is not the only way that you can build forms with React, you can use an uncontrolled form, or debounced form, let's see a brief explanation about it:
 
 - Controlled form - controlled forms mean that every time that an input event happens the component that this state belongs will be rendered again.
 - Uncontrolled form - when we use uncontrolled forms we don't have any state to keep the input value, and we just take the input value when we want to use it.
-- Debounced form - debounced forms mix controlled and uncontrolled approachs, it's necessary to use a state to keep the input value, but this value is changed only after the last input event happens.
+- Debounced form - debounced forms mix controlled and uncontrolled approaches, it's necessary to use a state to keep the input value, but this value is changed only after the last input event happens.
 
 > Debounce function forces a function to wait a certain amount of time before running again. The function is built to limit the number of times a function is called.
 
@@ -28,7 +28,7 @@ function App() {
     <div className="container-fluid">
       <div className="row">
         <div className="col-lg-6 col-md-6">
-          <FormDebounce />
+          <DebouncedForm />
         </div>
         <div className="col-lg-6 col-md-6">
           <FormControlled />
@@ -128,11 +128,11 @@ The next thing we should understand is that:
 
 > A common mistake is to think functions shouldn’t be dependencies.
 
-If a function is used inside a `useEffect` we should use this function as a dependency, and we know that the function will change in every component render, for this reason, we use `useCallback`, if not our component will be rendered more than necessary.
+If a function is used inside a `useEffect` we should pass this function as a dependency, and we know that the function will change in every component render, for this reason, we use `useCallback`, if not our component will be rendered more than necessary.
 
 So, in the first part of our component code, we are using some hooks; `useState` to save blur event state and `useRef` to create a reference to use in the input element. After that we use `useCallback` with `debounce` function and `setTouched`.
 
-`useEffect` receives `blurInput`, `debounceInput`, `inputRef` as dependencies, inside of functions that we use with useEffect we use the input reference to register the functions to deal with input and blur events, after that, we just return a function that should remove the event listener functions.
+`useEffect` receives `blurInput`, `debounceInput`, `inputRef` as dependencies, inside of the function that we use with useEffect, we use the input reference to register the functions to deal with input and blur events, after that, we just return a function that should remove the event listener functions.
 
 ## Improving useValidation hook
 
