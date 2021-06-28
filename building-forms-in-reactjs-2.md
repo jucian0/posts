@@ -98,3 +98,52 @@ export default Input;
 ```
 
 ### Bellow I explain every part of the code.
+
+The first thing that we should discuss is why I'm using `useCallback`. UseCallback is used when you want to memoise a function, this hook receives a function as argument and memoise it, and this hook will return the same function while the dependencies don't change. When the some dependency is changed a new function is returned. But why we need to do this? The functions inside a component will change every time that the component is rendered, so when I use `useCallback` I know that the function returned is the same, unless some dependency is changed.
+
+The next thing we should understand is that:
+
+> A common mistake is to think functions shouldn’t be dependencies.
+
+If a function is used inside a `useEffect` we should use this function as dependency, and we know that thw function will change in every component render, for this reason we use `useCallback`, if not our component will rendered more than necessary.
+
+So, the first part of our component code, we are using some hooks; `useState` to save blur event state and `useRef` to create a reference do use in input element. After that we use `useCallback` with `debounce` function and `setTouched`.
+
+`useEffect` receives `blurInput`, `debounceInput`, `inputRef` as dependencies, inside of functions that we use with useEffect we use the input reference to register the functions to deal with input and blur events, after that we just return a function that should remove the event listener functions.
+
+## Improving useValidation hook
+
+```javascript
+import { useState, useEffect, useCallback } from "react";
+import { ValidationError } from "yup";
+
+function useValidation(values, schema) {
+  const [errors, setErrors] = useState({});
+  const [isValid, setIsValid] = useState(false);
+
+  const validate = useCallback(async () => {
+    try {
+      await schema.validate(values, { abortEarly: false });
+      setErrors({});
+      setIsValid(true);
+    } catch (e) {
+      if (e instanceof ValidationError) {
+        const errors = {};
+        e.inner.forEach((key) => {
+          errors[key.path] = key.message;
+        });
+        setErrors(errors);
+        setIsValid(false);
+      }
+    }
+  }, [schema, values]);
+
+  useEffect(() => {
+    validate();
+  }, [validate]);
+
+  return { errors, isValid };
+}
+
+export default useValidation;
+```
