@@ -209,3 +209,24 @@ The second small change is to use `isValid` in the submit button.
   </button>
 </div>
 ```
+
+## Comparing the forms
+
+![img](https://res.cloudinary.com/practicaldev/image/fetch/s--J4W-oeof--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/2052/1%2AJRHorHsIIfnktZSWzlKnXw.png)
+I will compare the amount of renders of every component, you can do that with the react extension for browsers. I Press F12 and after that `profiler` and `Start Profiling`.
+
+FormDebounced results:
+![img](https://res.cloudinary.com/practicaldev/image/fetch/s--X_JrOmIc--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/2052/1%2A4hsbtKezq9fcKKbACYK8EQ.png)
+
+ControlledForm results:
+![](https://res.cloudinary.com/practicaldev/image/fetch/s--RVXJfBx9--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/2052/1%2A-U7EkfPOcjVLAsMT91AD0w.png)
+
+In the fist example we have 3 renders, and in the second we have 13 renders, it's a big difference.
+
+I don't want to convince you about the better approach, in many cases this will not make any sense, you should discovery by yourself what is better for your application.
+But I hope that this post helped you with something!!!
+
+Github repository: https://github.com/Jucian0/react-form-debounce
+
+Codesandbox
+https://codesandbox.io/s/github/Jucian0/react-form-debounce/tree/master/?from-embed
