@@ -16,9 +16,32 @@ Controlled forms are the most popular form implementation and we can find it in 
 
 First of all you should clone the last example [here](https://github.com/Jucian0/react-form-controlled)
 
+## Creating the form component
+
+We already have a form component, in the last post we developed it, so we don't have to do a lot of things, let's do that:
+
+Open the project that you already cloned and copy the folder `ControlledForm` and rename to `DebouncedForm`, and import this new component and use it inside the `App`.
+
+```jsx
+function App() {
+  return (
+    <div className="container-fluid">
+      <div className="row">
+        <div className="col-lg-6 col-md-6">
+          <FormDebounce />
+        </div>
+        <div className="col-lg-6 col-md-6">
+          <FormControlled />
+        </div>
+      </div>
+    </div>
+  );
+}
+```
+
 ## Debounce function
 
-> Debounce function is an example of higher-order function
+> Debounce function is a higher-order function
 
 ### But, what it's means?
 
@@ -99,7 +122,7 @@ export default Input;
 
 ### Code explanation
 
-The first thing that we should discuss is why I'm using `useCallback`. UseCallback is used when you want to memoise a function, this hook receives a function as argument and memoise it, and this hook will return the same function while the dependencies don't change. When the some dependency is changed a new function is returned. But why we need to do this? The functions inside a component will change every time that the component is rendered, so when I use `useCallback` I know that the function returned is the same, unless some dependency is changed.
+The first thing that we should discuss is why I'm using `useCallback`. UseCallback is used when you want to memoise a function, this hook receives a function as argument and memoise it, and this hook will return the same function while the dependencies doesn't change. When the some dependency is changed a new function is returned. But why we need to do this? The functions inside a component will change every time that the component is rendered, so when I use `useCallback` I know that the function returned is the same, unless some dependency is changed.
 
 The next thing we should understand is that:
 
@@ -113,7 +136,7 @@ So, the first part of our component code, we are using some hooks; `useState` to
 
 ## Improving useValidation hook
 
-`useValidation` is hook that return an object with errors and a property to show us if the form values is valid or not.
+`useValidation` is a hook that return an object with errors and a property to show us if the form values is valid or not.
 
 ```javascript
 import { useState, useEffect, useCallback } from "react";
@@ -161,3 +184,28 @@ Added object error with the specific property in every field. If you run the app
 I use `useCallback` with `validate` function and pass this function as a useEffect dependency.
 
 Finally I return an object with the form errors and one property that show me if the form is valid or not.
+
+## Last change
+
+Now we need to make just two small changes in `DebouncedForm` component:
+
+The first change is to adjust the object returned by `useValidation`, now we want tto know if the form is valid, so we just need to take this property.
+
+```jsx
+const { errors, isValid } = useValidation(form, FormValidations);
+```
+
+The second small change is to use `isValid` in the submit button.
+
+```jsx
+<div className="form-group">
+  <button
+    type="button"
+    className="btn btn- 
+    primary"
+    disabled={!isValid}
+  >
+    Submit
+  </button>
+</div>
+```
