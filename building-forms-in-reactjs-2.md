@@ -8,7 +8,7 @@ Controlled forms are the most popular form implementation and we can find it in 
 
 - Controlled form - controlled forms mean that every time that an input event happens the component that this state belongs will be rendered again.
 - Uncontrolled form - when we use uncontrolled forms we don't have any state to keep the input value, and we just take the input value when we want to use it.
-- Debounced form - debounced forms mix controlled and uncontrolled approaches, it's necessary to use a state to keep the input value, but this value is changed only after the last input event happens.
+- Debounced form - debounced forms mix controlled and uncontrolled approach, it's necessary to use a state to keep the input value, but this value is changed only after the last input event happens.
 
 > Debounce function forces a function to wait a certain amount of time before running again. The function is built to limit the number of times a function is called.
 
@@ -74,7 +74,7 @@ export function debounce(fn, wait, immediate) {
 }
 ```
 
-So, a debounce function is a function that returns another function, and that returned function runs the function that we pass as an argument into debounce function after a certain time that we should pass as an argument into debounce function.
+So, a debounce function is a function that returns another function, and that returned function runs the function that we pass as an argument into debounce function.
 
 ```javascript
 const callbackFunction = () => {}; // it will be executed into returned function
@@ -87,7 +87,7 @@ returnedFunction(); // callbackFunction know my arguments
 
 ## Using debounce function into Input component
 
-I will use debounce function with `onChange` event from `input`, and add 500 milliseconds. This way the form state will change just after 500 milliseconds after the user stops writing.
+I will use debounce function with `onChange` event from `input`, and add 500 milliseconds. This way the form state will change just after 500 milliseconds when the user stops writing.
 
 ```jsx
 import React, { useState, useRef, useEffect, useCallback } from "react";
@@ -128,9 +128,9 @@ The next thing we should understand is that:
 
 > A common mistake is to think functions shouldn’t be dependencies.
 
-If a function is used inside a `useEffect` we should pass this function as a dependency, and we know that the function will change in every component render, for this reason, we use `useCallback`, if not our component will be rendered more than necessary.
+If a function is used inside a `useEffect` we should pass this function as a dependency, and we know that the function will change in every component render, for this reason, we use `useCallback`, if not our component will be rendered unnecessary.
 
-So, in the first part of our component code, we are using some hooks; `useState` to save blur event state and `useRef` to create a reference to use in the input element. After that we use `useCallback` with `debounce` function and `setTouched`.
+In the first part of our component code, we are using some hooks; `useState` to save blur event state, and `useRef` to create a reference to use in the input element. After that we use `useCallback` with `debounce` function and `setTouched`.
 
 `useEffect` receives `blurInput`, `debounceInput`, `inputRef` as dependencies, inside of the function that we use with useEffect, we use the input reference to register the functions to deal with input and blur events, after that, we just return a function that should remove the event listener functions.
 
@@ -179,7 +179,7 @@ In this code I use `useEffect` to keep the errors object and isValid property, b
 
 Added a function named `validate`, this function should receive the form values and pass this value to object validation. If the form state has a valid value, we set an empty object in the errors state and true in `isValid` property, but if it has any error, we need to know if is an error of validation (ValidationError instance), before setting them in the errors state and false in `isValid`.
 To update the errors every time that form is changed, we pass the form state as a dependency in the useEffect hook.
-Added object error with the specific property in every field. If you run the application again you will see the form working well with validation.
+Added object error with the specific property in every field.
 
 I use `useCallback` with `validate` function and pass this function as a useEffect dependency.
 
