@@ -97,7 +97,7 @@ function Input({ error, label, onChange, ...rest }) {
 export default Input;
 ```
 
-### Bellow I explain every part of the code.
+### Code explanation
 
 The first thing that we should discuss is why I'm using `useCallback`. UseCallback is used when you want to memoise a function, this hook receives a function as argument and memoise it, and this hook will return the same function while the dependencies don't change. When the some dependency is changed a new function is returned. But why we need to do this? The functions inside a component will change every time that the component is rendered, so when I use `useCallback` I know that the function returned is the same, unless some dependency is changed.
 
@@ -112,6 +112,8 @@ So, the first part of our component code, we are using some hooks; `useState` to
 `useEffect` receives `blurInput`, `debounceInput`, `inputRef` as dependencies, inside of functions that we use with useEffect we use the input reference to register the functions to deal with input and blur events, after that we just return a function that should remove the event listener functions.
 
 ## Improving useValidation hook
+
+`useValidation` is hook that return an object with errors and a property to show us if the form values is valid or not.
 
 ```javascript
 import { useState, useEffect, useCallback } from "react";
@@ -147,3 +149,15 @@ function useValidation(values, schema) {
 
 export default useValidation;
 ```
+
+### Code explanation
+
+In this code I use `useEffect` to keep the errors object and isValid property, by default isValid should be false, because when we start our form we don't have any values.
+
+Added a function named `validate`, this function should receive the form values and pass this value to object validation. If the form state has a valid value, we set an empty object in the errors state and true in `isValid` property, but if it has any error, we need to know if is an error of validation (ValidationError instance), before setting them in the errors state and false in `isValid`.
+To update the errors every time that form is changed, we pass form state as a dependency in the useEffect hook.
+Added object error with the specific property in every field. If you run the application again you will see the form working well with validation.
+
+I use `useCallback` with `validate` function and pass this function as a useEffect dependency.
+
+Finally I return an object with the form errors and one property that show me if the form is valid or not.
