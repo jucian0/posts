@@ -1,14 +1,14 @@
 Do you really need a form library to build forms in React?
 
-Hello friends, today I will continue talking to you about forms, this is the second post about forms, and I hope that this post helps you to learn something. In the last post I showed to you an example of controlled form implementation, and today I want to show you another example focused on performance, we will develop a debounced form.
+Hello friends, today I will continue my post on forms. This is the second post on the subject and I hope that it teaches you something new. In the last post I showed to you an example of controlled form implementation, and today I want to show you another example focused on performance as we develop a debounced form.
 
-If you are interested in the last post you can read [here](https://dev.to/jucian0/reactjs-building-forms-236m)
+If you are interested in the last post, you can read it [here](https://dev.to/jucian0/reactjs-building-forms-236m)
 
-Controlled forms are the most popular form implementation and we can find it in many libraries, one example is Formik, however controlled form is not the only way that you can build forms with React, you can use an uncontrolled form, or debounced form, let's see a brief explanation about it:
+Controlled forms are the most popular form implementation and we can find it in many libraries, one example is Formik, however controlled form is not the only way that you can build forms with React, you can use an uncontrolled form, or debounced form. Here's a brief explanation about it:
 
-- Controlled form - controlled forms mean that every time that an input event happens the component that this state belongs will be rendered again.
+- Controlled form - controlled forms mean that every time an input event happens, the component that this state belongs will be rendered again.
 - Uncontrolled form - when we use uncontrolled forms we don't have any state to keep the input value, and we just take the input value when we want to use it.
-- Debounced form - debounced forms mix controlled and uncontrolled approach, it's necessary to use a state to keep the input value, but this value is changed only after the last input event happens.
+- Debounced form - debounced forms mix controlled and uncontrolled approaches. It's necessary to use a state to keep the input value, but this value is changed only after the last input event happens.
 
 > Debounce function forces a function to wait a certain amount of time before running again. The function is built to limit the number of times a function is called.
 
@@ -18,9 +18,9 @@ First of all, you should clone the last example [here](https://github.com/Jucian
 
 ## Creating the form component
 
-We already have a form component, in the last post we developed it, so we don't have to do a lot of things, let's do that:
+We already have a form component, as we developed it in the last post, so we don't have to do a lot of things, let's do that:
 
-Open the project that you already cloned and copy the folder `ControlledForm` and rename to `DebouncedForm`, and import this new component and use it inside the `App`.
+Open the project that you already cloned and copy the folder `ControlledForm` and rename to `DebouncedForm`, and import this new component to use inside the `App`.
 
 ```jsx
 function App() {
@@ -43,13 +43,13 @@ function App() {
 
 > Debounce function is a higher-order function
 
-### But, what it means?
+### But, what does that means?
 
-Higher-order function is extensively used in javascript, you probably are using it's even if you don't know.
+Higher-order function is extensively used in javascript, you are probably using it even if you don't know it.
 
 > Higher-Order function is a function that receives a function as an argument or returns the function as output.
 
-Okay, if you are ready we can start, the first thing that we should do is to create a function named `debounce`, this function will reduce the number of times that we change the form state and the number of renders of the component. Bellow, we can see my implementation:
+Okay, if you are ready we can start. The first thing that we should do is to create a function named `debounce`, this function will reduce the number of times that we change the form state and the number of renders of the component. Below, we can see my implementation:
 
 ```javascript
 export function debounce(fn, wait, immediate) {
@@ -87,7 +87,7 @@ returnedFunction(); // callbackFunction know my arguments
 
 ## Using debounce function into Input component
 
-I will use debounce function with `onChange` event from `input`, and add 500 milliseconds. This way the form state will change just after 500 milliseconds when the user stops writing.
+I will use debounce function with `onChange` event from `input`, and add 500 milliseconds. This way the form state will only change after 500 milliseconds when the user stops writing.
 
 ```jsx
 import React, { useState, useRef, useEffect, useCallback } from "react";
@@ -122,17 +122,17 @@ export default Input;
 
 ### Code explanation
 
-The first thing that we should discuss is why I'm using `useCallback`. UseCallback is used when you want to memorize a function, this hook receives a function as an argument and memoizes it, and this hook will return the same function while the dependencies don't change. When some dependency is changed a new function is returned. But why we need to do this? The functions inside a component will change every time that the component is rendered, so when I use `useCallback` I know that the function returned is the same, unless some dependency is changed.
+The first thing that we should discuss is why I'm using `useCallback`. UseCallback is used when you want to memorize a function, this hook receives a function as an argument and memorizes it, and this hook will return the same function while the dependencies don't change. When some dependency is changed a new function is returned. But why do we need to do this? The functions inside a component will change every time that the component is rendered, so when I use `useCallback` I know that the function returned is the same, unless some dependency is changed.
 
 The next thing we should understand is that:
 
 > A common mistake is to think functions shouldn’t be dependencies.
 
-If a function is used inside a `useEffect` we should pass this function as a dependency, and we know that the function will change in every component render, for this reason, we use `useCallback`, if not our component will be rendered unnecessary.
+If a function is used inside a `useEffect` we should pass this function as a dependency, and we know that the function will change in every component render, for this reason, we use `useCallback`, if we don't, our component will be rendered unnecessary.
 
 In the first part of our component code, we are using some hooks; `useState` to save blur event state, and `useRef` to create a reference to use in the input element. After that we use `useCallback` with `debounce` function and `setTouched`.
 
-`useEffect` receives `blurInput`, `debounceInput`, `inputRef` as dependencies, inside of the function that we use with useEffect, we use the input reference to register the functions to deal with input and blur events, after that, we just return a function that should remove the event listener functions.
+`useEffect` receives `blurInput`, `debounceInput`, `inputRef` as dependencies inside of the function that we use with useEffect. We use the input reference to register the functions to deal with input and blur events, after that, we just return a function that should remove the event listener functions.
 
 ## Improving useValidation hook
 
@@ -183,13 +183,13 @@ Added object error with the specific property in every field.
 
 I use `useCallback` with `validate` function and pass this function as a useEffect dependency.
 
-Finally I return an object with the form errors and one property that shows me if the form is valid or not.
+Finally, I return an object with the form errors and one property that shows me if the form is valid or not.
 
 ## Last change
 
 Now we need to make just two small changes in `DebouncedForm` component:
 
-The first change is to adjust the object returned by `useValidation`, now we want tto know if the form is valid, so we just need to take this property.
+The first change is to adjust the object returned by `useValidation`, now we want to know if the form is valid, so we just need to take this property.
 
 ```jsx
 const { errors, isValid } = useValidation(form, FormValidations);
@@ -213,7 +213,7 @@ The second small change is to use `isValid` in the submit button.
 ## Comparing the forms
 
 ![img](https://res.cloudinary.com/practicaldev/image/fetch/s--J4W-oeof--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/2052/1%2AJRHorHsIIfnktZSWzlKnXw.png)
-I will compare the number of renders of every component, you can do that with the react extension for browsers. I press F12 and after that `profiler` and `Start Profiling`.
+I will now compare the number of renders of every component, which you can do with the React extension for browsers. I press F12 and after that `profiler` and `Start Profiling`.
 
 FormDebounced results:
 ![img](https://res.cloudinary.com/practicaldev/image/fetch/s--X_JrOmIc--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/2052/1%2A4hsbtKezq9fcKKbACYK8EQ.png)
@@ -223,8 +223,8 @@ ControlledForm results:
 
 In the first example, we have 3 renders, and in the second we have 13 renders, it's a big difference.
 
-I don't want to convince you about the better approach, in many cases, this will not make any sense, you should discover by yourself what is better for your application.
-But I hope that this post helped you with something!!!
+I'm not saying that this is the better approach, in many cases, this will not make any sense, so you should discover for yourself what is best for your application.
+I hope that this post helped you to figure that out!
 
 Github repository: https://github.com/Jucian0/react-form-debounce
 
