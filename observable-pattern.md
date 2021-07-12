@@ -1,0 +1,1 @@
+In this post I will try to explain a very comom pattern extensivily utilized by software developers
