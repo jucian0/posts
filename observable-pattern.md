@@ -57,11 +57,14 @@ export default new Observable();
 - `notify` - This method receives a data as argument will iterate the observers list and pass the data as an argument into every observer.
 - Finally I return an Observable object.
 
-It's a simple implementation of Observable pattern, but I need to write a simple case of use to see it working.
+## Using it
+
+It's a simple implementation of Observable pattern, but I need to write a simple case of use to see it working. The code bellow is not a common case of use, it's just to turn more easy to us figure out how it works.
 
 ```javascript
 import Observable from "./Observer";
 
+// selecting HTML elements
 const input = document.getElementById("text-input");
 const firstSubscriberBtn = document.getElementById("first-subscriber-btn");
 const secondSubscriberBtn = document.getElementById("second-subscriber-btn");
@@ -73,10 +76,11 @@ const textFirstSubscriber = document.getElementById("first-subscriber");
 const textSecondSubscriber = document.getElementById("second-subscriber");
 
 const firstText = (e) => (textFirstSubscriber.innerText = `${e}`);
-const secondtText = (e) => (textSecondSubscriber.innerText = `${e}`);
+const secondText = (e) => (textSecondSubscriber.innerText = `${e}`);
 
 input.addEventListener("input", (e) => Observable.notify(e.target.value));
 
+// subscribing
 firstSubscriberBtn.addEventListener("click", (e) => {
   e.preventDefault();
   Observable.subscribe(firstText);
@@ -84,15 +88,22 @@ firstSubscriberBtn.addEventListener("click", (e) => {
 
 secondSubscriberBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  Observable.subscribe(secondtText);
+  Observable.subscribe(secondText);
 });
 
+// unsubscribing
 firstUnSubscriberBtn.addEventListener("click", (e) => {
   e.preventDefault();
   Observable.unsubscribe(firstText);
 });
 secondUnSubscriberBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  Observable.unsubscribe(secondtText);
+  Observable.unsubscribe(secondText);
 });
 ```
+
+- I start selecting some HTML element, like a buttons and text input.
+- `firstText` and `secondText` are just simple functions that receive a certain text value an insert it into text element using `innerText` resource.
+- In the next step I'm adding an event listener for input event type, this listener should be the `Observable.notify` method. If some input event happens the notify method will notify every observer.
+- I'm trying to make a dynamic subscriptions, for this reason I use the click event to subscribe and unsubscribe on Observable.
+- Finally I'm subscribing and unsubscribing on Observable when I click in subscribe button or unsubscribe button.
