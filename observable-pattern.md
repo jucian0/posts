@@ -75,9 +75,11 @@ const secondUnSubscriberBtn = document.getElementById(
 const textFirstSubscriber = document.getElementById("first-subscriber");
 const textSecondSubscriber = document.getElementById("second-subscriber");
 
+//observers are inserting into text element the value received
 const firstText = (e) => (textFirstSubscriber.innerText = `${e}`);
 const secondText = (e) => (textSecondSubscriber.innerText = `${e}`);
 
+// event source, notifying all observer
 input.addEventListener("input", (e) => Observable.notify(e.target.value));
 
 // subscribing
@@ -103,7 +105,7 @@ secondUnSubscriberBtn.addEventListener("click", (e) => {
 ```
 
 - I start selecting some HTML element, like a buttons and text input.
-- `firstText` and `secondText` are just simple functions that receive a certain text value an insert it into text element using `innerText` resource.
+- `firstText` and `secondText` are the observers that receive a certain text value an insert it into text element using `innerText` resource.
 - In the next step I'm adding an event listener for input event type, this listener should be the `Observable.notify` method. If some input event happens the notify method will notify every observer.
 - I'm trying to make a dynamic subscriptions, for this reason I use the click event to subscribe and unsubscribe on Observable.
 - Finally I'm subscribing and unsubscribing on Observable when I click in subscribe button or unsubscribe button.
