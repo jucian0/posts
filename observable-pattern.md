@@ -50,3 +50,49 @@ class Observable {
 
 export default new Observable();
 ```
+
+- `constructor` - I start creating a class named Observable and in the constructor I'm assign a empty array in observers property. The observers property will keep the observable list.
+- `subscribe` - After that, I create a method named subscribe, this method receives a function as an argument, and this argument will be an observable. After that I use spread operator to assign a new array with the function received as argument into observers property. After all a return function that will be responsible to remove the observer that I just assigned into subscribers.
+- `unsubscribe` - This method is responsible to remove a certain observer, unsubscribe method receive a function and verify if this function is present in observers list and remove it.
+- `notify` - This method receives a data as argument will iterate the observers list and pass the data as an argument into every observer.
+- Finally I return an Observable object.
+
+It's a simple implementation of Observable pattern, but I need to write a simple case of use to see it working.
+
+```javascript
+import Observable from "./Observer";
+
+const input = document.getElementById("text-input");
+const firstSubscriberBtn = document.getElementById("first-subscriber-btn");
+const secondSubscriberBtn = document.getElementById("second-subscriber-btn");
+const firstUnSubscriberBtn = document.getElementById("first-un-subscriber-btn");
+const secondUnSubscriberBtn = document.getElementById(
+  "second-un-subscriber-btn"
+);
+const textFirstSubscriber = document.getElementById("first-subscriber");
+const textSecondSubscriber = document.getElementById("second-subscriber");
+
+const firstText = (e) => (textFirstSubscriber.innerText = `${e}`);
+const secondtText = (e) => (textSecondSubscriber.innerText = `${e}`);
+
+input.addEventListener("input", (e) => Observable.notify(e.target.value));
+
+firstSubscriberBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  Observable.subscribe(firstText);
+});
+
+secondSubscriberBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  Observable.subscribe(secondtText);
+});
+
+firstUnSubscriberBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  Observable.unsubscribe(firstText);
+});
+secondUnSubscriberBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  Observable.unsubscribe(secondtText);
+});
+```
