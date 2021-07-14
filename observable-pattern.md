@@ -114,8 +114,8 @@ This is the end of my Observable pattern implementation, you can see the result 
 
 ## Conclusion
 
-Well, after all we have an idea of how it works, and you maybe figured out that some libraries use this pattern or something similar to implement they solution. Now think that every observer is a component and the notify is a kind of dispatch, we can build a rudimentary state management, if you are interested how to do it you can read one of my posts [Implementing Redux Pattern](https://dev.to/jucian0/implementing-redux-pattern-1oj0).
+Well, after all we have an idea of how it works, and you maybe figured out that some libraries use this pattern or something similar to implement their solution. Now think that every observer is a component and the notify is a kind of dispatch, we can build a rudimentary state management, if you are interested how to do it you can read one of my posts [Implementing Redux Pattern](https://dev.to/jucian0/implementing-redux-pattern-1oj0).
 
 If you are interested in learn more about this topic you can try [RXJS](https://rxjs.dev/), this library turns the process very easy, and you can do a lot of thinks with operator.
 
-Even you don't need to write this pattern in your projects, it's very important that you understand how it works, because many libraries that we use uses it to implement they solutions.
+Even you don't need to write this pattern in your projects, it's very important that you understand how it works, because many libraries that we use uses it to implement their solutions.
