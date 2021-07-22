@@ -6,19 +6,23 @@ This pattern is very useful when there are many software components interested i
 
 ## An analogy
 
-When I learned this pattern I read a lot of analogy that was trying to explain how `Observable` pattern works, the most interesting of all was the job opportunity analogy.
+When I discovered this pattern, I read a lot of analogies trying to explain how `Observable` pattern works, the most interesting of all was the raffle trip.
 
-A certain company called Atric was interested to open a job opportunity, for this reason, the company published in the newspaper a job opportunity, after some days many workers become interested in it, and applied for it. The company told they that the process would be clear and at the end everyone would be notified about the result by email.
+A company called Atric wanted to give a gift to one employees, the present was a trip, for this reason the company made a raffle. The company published:
 
-After three weeks, the company sends they an email:
+> Who does the better sentence about: "How should be a good trip" will win a trip to Petar SP. The sentences should be sended by email.
+The winner will be notified by email in three weeks.
 
-> Thanks for your interest to work with us, we received many inscriptions. Unfortunately, we will not continue with your process, the candidate selected is Juciano C Barbosa.
+Many employees wrote the sentences, and after three weeks the employees received an e-mail saying who was won the raffle:
+
+> Thanks for your participation, we received many subscriptions, unfortunately your sentence doest not won the raffle.
+The winner is Juciano Barbosa.
 
 ## Applying the analogy
 
 This is a simple explanation of how the `Observable` pattern works, when the company sent the email every candidate was notified.
 
-The job opportunity was an Observable and the candidate was an observer, the company used the newspaper to get some candidates and after that, the company used the email to notify the candidates.
+The raffle was an Observable and the participants was observers, the company used an internal communication to get some participants and after that, the company used the email to notify the participants.
 
 ![img](https://res.cloudinary.com/practicaldev/image/fetch/s--fFL1gLyM--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://miro.medium.com/max/1400/1%2A1_UqvLgnW_YoveycFEHmzA.png)
 
