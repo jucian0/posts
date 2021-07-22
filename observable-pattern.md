@@ -8,21 +8,21 @@ This pattern is very useful when there are many software components interested i
 
 When I discovered this pattern, I read a lot of analogies trying to explain how `Observable` pattern works, the most interesting of all was the raffle trip.
 
-A company called Atric wanted to give a gift to one of them employees, the present was a trip, for this reason the company made a raffle. The company published it:
+A company called Atric wanted to give a gift to one of the employees, the present was a trip, for this reason, the company made a raffle. The company published it:
 
-> Who does the most funny sentence about trip, will win a trip to Petar SP. The sentences should be sended by email raffle@company.com.
+> Who does the funniest sentence about a trip will win a trip to Petar SP. The sentences should be sent by email raffle@company.com.
 The winner will be notified by email in three weeks.
 
 Many employees wrote the sentences, and after three weeks the employees received an e-mail saying who was won the raffle:
 
-> Thanks for your participation, we received many subscriptions, unfortunately your sentence doest not won the raffle.
+> Thanks for your participation, we received many subscriptions, unfortunately, your sentence does not win the raffle.
 The winner is Juciano Barbosa and the sentence is "It's only a four hour trip, maybe.".
 
 ## Applying the analogy
 
 This is a simple explanation of how the `Observable` pattern works, when the company sent the email every participant was notified.
 
-The raffle was an Observable and the participants was observers, the company used an internal communication to get some participants and after that, the company used the email to notify the participants.
+The raffle was an Observable and the participants were observers, the company used internal communication to get some participants and after that, the company used the email to notify the participants.
 
 ![img](https://res.cloudinary.com/practicaldev/image/fetch/s--fFL1gLyM--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://miro.medium.com/max/1400/1%2A1_UqvLgnW_YoveycFEHmzA.png)
 
