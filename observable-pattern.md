@@ -1,8 +1,8 @@
 # Observable pattern
 
-In this post I will try to explain a very common pattern extensively used by software developers, even that new developers don't know how to implement or how it works it's probably that they are using this pattern, since `Observable` pattern is very common in libraries.
+In this post I will explain a very common pattern extensively used by software developers, even though new developers my not know how to implement it or how it works it's probably still using it, as `Observable` pattern is very common in libraries.
 
-This pattern is very helpful when many software components are interested in a specific event, when this happens those component just need to subscribe on this event to be notified when this event happens, and that way the components will know what is happening.
+This pattern is very useful when there are many software components interested in a specific event. In this case, those components just need to subscribe to this event to be notified when the event happens.
 
 ## An analogy
 
@@ -24,13 +24,13 @@ The job opportunity was an Observable and the candidate was an observer, the com
 
 ## Basic requirements?
 
-To perform this tutorial you will need to have:
+To apply this tutorial you will need to have:
 
 Basic knowledge of Javascript or another programing language.
 
 ## Let's start
 
-In this tutorial, I will use Javascript, feel free to write in another language. By the way, we can have an approach more function, let me know if is it interesting for you, but for now, I will implement using a class approach.
+In this tutorial, I use Javascript, but feel free to use another language. We can also have an approach more function, so please let me know if this is interesting for you, but for now, we will it implement using a class approach.
 
 ```javascript
 class Observable {
@@ -59,15 +59,15 @@ class Observable {
 export default new Observable();
 ```
 
-- `constructor` - I start creating a class named Observable and in the constructor, I assign an empty array in the observers property. The observers property will keep the observable list.
-- `subscribe` - After that, I create a method named subscribe, this method receives a function as an argument, and this argument will be an observable. After that, I use the spread operator to assign a new array with the function received as argument into observers property. After all, a return function that will be responsible to remove the observer that I just assigned into subscribers.
-- `unsubscribe` - This method is responsible to remove a certain observer, unsubscribe method receive a function and verify if this function is present in observers list and remove it.
-- `notify` - This method receives a data as argument will iterate the observers list and pass the data as an argument into every observer.
-- Finally, I return an Observable object.
+- `constructor` - Start by creating a class named Observable and in the constructor, assign an empty array in the observers property. The observers property will keep the observable list.
+- `subscribe` - After that, create a method named subscribe, this method receives a function as an argument, and this argument will be an observable. After that, use the spread operator to assign a new array with the function received as an argument into the observers property. The return function will be responsible to remove the observer that we just assigned into subscribers.
+- `unsubscribe` - This method is responsible to remove a certain observer. The unsubscribe method receives a function and verifies if this function is present in the observers list, and if it is, removes it.
+- `notify` - This method receives data as an argument, iterates the observers list, and passes the data as an argument into every observer.
+- Finally, return an Observable object.
 
 ## Using it
 
-It's a simple implementation of the Observable pattern, but I need to write a case of use to see it working. The code below is not a common case of use, it's just to turn more easily to us to figure out how it works.
+This is a simple implementation of the Observable pattern, but we need to write a case of use to see it working. The code below is not a common case of use, but makes it easier for us to figure out how it works.
 
 ```javascript
 import Observable from "./Observer";
@@ -112,18 +112,18 @@ secondUnSubscriberBtn.addEventListener("click", (e) => {
 });
 ```
 
-- I start selecting some HTML elements, like a button and text input.
+- Start by selecting some HTML elements, like a button and text input.
 - `firstText` and `secondText` are the observers that receive a certain text value and insert it into the text element using `innerText` resource.
-- In the next step I'm adding an event listener for input event type, this listener should be the `Observable.notify` method. If some input event happens, the notify method will notify every observer.
-- I'm trying to make a dynamic subscription, for this reason, I use the click event to subscribe and unsubscribe on Observable.
-- Finally, I'm subscribing and unsubscribing on Observable when I click on subscribe button or unsubscribe button.
+- In the next step add an event listener for input event type, this listener should be the `Observable.notify` method. If some input event happens, the notify method will notify every observer.
+- To try and make a dynamic subscription, use the click event to subscribe and unsubscribe on Observable.
+- Finally, we can subscribing and unsubscribing on Observable when I clicking on the subscribe or unsubscribe buttons.
 
-This is the end of my Observable pattern implementation, you can see the result in: [CodeSandbox](https://codesandbox.io/s/github/Jucian0/observer-pattern)
+This is the end of my Observable pattern implementation; you can see the result in: [CodeSandbox](https://codesandbox.io/s/github/Jucian0/observer-pattern)
 
 ## Conclusion
 
-Well, after all, we have an idea of how it works, and you may be figured out that some libraries use this pattern or something similar to implement their solution. Now think that every observer is a component and the notify is a kind of a dispatch, we can build a rudimentary state management, if you are interested how to do it you can read one of my posts [Implementing Redux Pattern](https://dev.to/jucian0/implementing-redux-pattern-1oj0).
+Now, we have an idea of how it works, and you may be figured out that some libraries use this pattern, or something similar, to implement their solution. Suppose that every observer is a component and the notify is a kind of a dispatch, we can build a rudimentary state management. Please read my post, [Implementing Redux Pattern](https://dev.to/jucian0/implementing-redux-pattern-1oj0), if you are interested in knowing how to do it.
 
-If you are interested to learn more about this topic you can try [RXJS](https://rxjs.dev/), this library turns the process effortless, and you can do many things with operators.
+For more information on this topic, you can try [RXJS](https://rxjs.dev/), this library makes the process effortless, and you can do many things with operators.
 
-Even you don't need to write this pattern in your projects, it's significant that you understand how it works because many libraries that we use it to implement their solutions.
+Even if you don't need this pattern in your projects, it's good to that you understand how it works because many libraries use it to implement their solutions.
