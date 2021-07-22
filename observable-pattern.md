@@ -20,7 +20,7 @@ The winner is Juciano Barbosa.
 
 ## Applying the analogy
 
-This is a simple explanation of how the `Observable` pattern works, when the company sent the email every candidate was notified.
+This is a simple explanation of how the `Observable` pattern works, when the company sent the email every participant was notified.
 
 The raffle was an Observable and the participants was observers, the company used an internal communication to get some participants and after that, the company used the email to notify the participants.
 
