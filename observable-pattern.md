@@ -8,15 +8,15 @@ This pattern is very useful when there are many software components interested i
 
 When I discovered this pattern, I read a lot of analogies trying to explain how `Observable` pattern works, the most interesting of all was the raffle trip.
 
-A company called Atric wanted to give a gift to one employees, the present was a trip, for this reason the company made a raffle. The company published:
+A company called Atric wanted to give a gift to one of them employees, the present was a trip, for this reason the company made a raffle. The company published it:
 
-> Who does the better sentence about: "How should be a good trip" will win a trip to Petar SP. The sentences should be sended by email.
+> Who does the most funny sentence about trip, will win a trip to Petar SP. The sentences should be sended by email raffle@company.com.
 The winner will be notified by email in three weeks.
 
 Many employees wrote the sentences, and after three weeks the employees received an e-mail saying who was won the raffle:
 
 > Thanks for your participation, we received many subscriptions, unfortunately your sentence doest not won the raffle.
-The winner is Juciano Barbosa.
+The winner is Juciano Barbosa and the sentence is "It's only a four hour trip, maybe.".
 
 ## Applying the analogy
 
