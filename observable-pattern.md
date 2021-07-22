@@ -6,9 +6,9 @@ This pattern is very useful when there are many software components interested i
 
 ## An analogy
 
-When I discovered this pattern, I read a lot of analogies trying to explain how `Observable` pattern works, the most interesting of all was the raffle trip.
+When I discovered this pattern, I read a lot of analogies trying to explain how `Observable` pattern works, the most interesting of all was the trip riffle.
 
-A company called Atric wanted to give a gift to one of the employees, the present was a trip, for this reason, the company made a raffle. The company published it:
+A company called Atric wanted to give a trip to one of the employees, for this reason, the company made a raffle. The company published it:
 
 > Who does the funniest sentence about a trip will win a trip to Petar SP. The sentences should be sent by email raffle@company.com.
 The winner will be notified by email in three weeks.
