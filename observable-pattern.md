@@ -129,4 +129,4 @@ Now, we have an idea of how it works, and you may have figured out that some lib
 
 For more information on this topic, you can try [RXJS](https://rxjs.dev/), this library makes the process effortless, and you can do many things with operators.
 
-Even if you don't need this pattern in your projects, it's good that you understand how it works because many libraries use it to implement their solutions..
+Even if you don't need this pattern in your projects, it's good that you understand how it works because many libraries use it to implement their solutions.
