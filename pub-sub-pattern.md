@@ -11,7 +11,11 @@ This pattern help you when you want to dispatch an event, and you want that just
 Some companies are interested in open new positions in their factories, for this reason, Ford, Volkswagen, and BMW make an announcement in the newspaper.
 
 > Ford announcement: We are Ford, and you can work with us, apply for our opportunities, and work with us, ford@ford.com
+
+
 > Volkswagen announcement: We are Volkswagen, and you can work with us, apply for our opportunities, and work with us, volkswagen@volkswagen.com
+
+
 > BMW announcement: We are BMW, and you can work with us building the most beautiful cars in the world, apply for our opportunities, and work with us, bmw@bmw.com
 
 ## Implementing Pub-Sub with javascript
