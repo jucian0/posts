@@ -10,7 +10,7 @@ This pattern help you when you want to dispatch an event, and you want that just
 
 ### An Analogy
 
-Some companies are interested in open new positions in their factories, for this reason, Ford, Volkswagen, and BMW make an announcement in the newspaper.
+Some companies was interested in open new positions in their factories, for this reason, Ford, Volkswagen, and BMW make an announcement in the newspaper.
 
 > Ford announcement: We are Ford, and we are very happy to announce that we have a new position for you, apply for our opportunities, and work with us, ford@ford.com
 
