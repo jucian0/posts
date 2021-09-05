@@ -14,4 +14,6 @@ Some companies are interested in open new positions in their factories, for this
 > Volkswagen announcement: We are Volkswagen, and you can work with us, apply for our opportunities, and work with us, volkswagen@volkswagen.com
 > BMW announcement: We are BMW, and you can work with us building the most beautiful cars in the world, apply for our opportunities, and work with us, bmw@bmw.com
 
+After some days, many employees become interested in these opportunities, and the companies receives many subscriptions by email. So, in the end of the process, every company sended a message to employees subscribed in their opportunity.
+
 ## Implementing Pub-Sub with javascript
