@@ -28,4 +28,10 @@ So, in the end of the process, every company sended a message to employees subsc
 
 ### Applying the analogy
 
+Let's understand how pub-sub works, understanding the analogy, the first thing that we need to understand is that the newspaper was the Pub-Sub, and the announcement was the event, and the email was the message, and the company was the publisher, and the employee was the subscriber.
+
+After the employers subscriptions, the companies dispatch the event, and the employees subscribed in the event receive the message. This example show us that the Pub-Sub is not about just one event, but many events, and the subscriber should subscribe in a specific event.
+
+So, now we now how pub-sub works, and we can go on and implement it using javascript.
+
 ## Implementing Pub-Sub with javascript
