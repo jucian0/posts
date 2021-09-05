@@ -1,10 +1,10 @@
-# The Pub-Sub pattern
+# The `Pub-Sub` pattern
 
-Hello everyone, in the last post I talked about observable pattern, and today I gonna talk about another patter called pub-sub, pub-sub has some differences with observable, and my plan is to explain this differences and show you how pub-sub works, and how you can implement it using javascript.
+Hello everyone, in the last post I talked about observable pattern, and today I gonna talk about another patter called `Pub-Sub`, `Pub-Sub` has some differences with observable, and my plan is to explain this differences and show you how `Pub-Sub` works, and how you can implement it using javascript.
 
-## How Pub-Sub works?
+## How `Pub-Sub` works?
 
-This pattern help you when you want to dispatch an event, and you want that just components that are interested in this event knows what is happening, as long as Observable dispatch just one event for everyone, Pub-Sub can dispatch many events, and who are interested should subscribe in a specific event.
+This pattern help you when you want to dispatch an event, and you want that just components that are interested in this event knows what is happening, as long as Observable dispatch just one event for everyone, `Pub-Sub` can dispatch many events, and who are interested should subscribe in a specific event.
 
 ![img](https://res.cloudinary.com/practicaldev/image/fetch/s--Q_RFMIEV--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://miro.medium.com/max/501/1%2ATSLaLllP_DcPQQOTpXbzeA.png)
 
@@ -30,13 +30,13 @@ So, in the end of the process, every company sended a message to employees subsc
 
 ### Applying the analogy
 
-Let's understand how pub-sub works, understanding the analogy, the first thing that we need to understand is that the newspaper was the Pub-Sub, and the announcement was the event, and the email was the message, and the company was the publisher, and the employee was the subscriber.
+Let's understand how `Pub-Sub` works, though the analogy, the first thing that we need to understand is that the newspaper was the `Pub-Sub`, and the announcement was the event, and the email was the message, and the company was the publisher, and the employee was the subscriber.
 
-After the employers subscriptions, the companies dispatch the event, and the employees subscribed in the event receive the message. This example show us that the Pub-Sub is not about just one event, but many events, and the subscriber should subscribe in a specific event.
+After the employers subscriptions, the companies dispatch the event, and the employees subscribed in the event receive the message. This example show us that the `Pub-Sub` is not about just one event, but many events, and the subscriber should subscribe in a specific event.
 
-So, now we now how pub-sub works, and we can go on and implement it using javascript.
+So, now we now how `Pub-Sub` works, and we can go on and implement it using javascript.
 
-## Implementing Pub-Sub with javascript
+## Implementing `Pub-Sub` with javascript
 
 The first thing that we need to implement is the PubSub class, this class will be the base of our implementation. So, lets do it:
 
@@ -80,9 +80,9 @@ export default new PubSub();
 
 2. The subscribe method will receive an event and a function, and we will store the function in the subscribers object, every event should be a property of this object and the value of this property should be an array of functions. After that, we will return a function that will filter the function that we want to remove from the subscribers array.
 
-3. The unsubscribe method will receive an event and a function, and we will remove the function from the subscribers object using the event received to select what property of the object we want to remove the function from.
+3. The unsubscribe method will receive an event and a function, and we will select the property of the subscriber object that match the event received as parameter, and we will filter the function that we want to remove from the subscribers array.
 
-4. The publish method will receive an event and a data, and we will iterate over the subscribers object, and for each subscriber that we found with the same event kind, we will call the function with the data.
+4. The publish method will receive an event and a data, and we will iterate over the subscribers object, and for each subscriber that match the event received, we will call the function with the data.
 
 5. The export default new PubSub(); will create a new instance of the class, and we will export it.
 
@@ -150,10 +150,10 @@ secondUnSubscriberBtn.addEventListener("click", (e) => {
 5. The firstInput will listen for the input event, and when it happens, it will publish the first-event event, and the secondInput will listen for the same event, and when it happens, it will publish the second-event event.
 
 You can see the result of the use case working in the link below:
-https://codesandbox.io/s/pub-sub-7qvkr?from-embed
+https://codesandbox.io/s/`Pub-Sub`-7qvkr?from-embed
 
 ## Conclusion
 
-Even you don't know how to implement it, it's very important to understand how Pub-Sub works, because it is very helpful since Pub-Sub is a very common pattern in many programming languages and libraries.
+Even you don't know how to implement it, it's very important to understand how `Pub-Sub` works, because it is very helpful since `Pub-Sub` is a very common pattern in many programming languages and libraries.
 
 I hope that you found this article helpful, and if you have any questions, please let me know in the comments section.
