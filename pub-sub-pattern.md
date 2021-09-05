@@ -85,3 +85,75 @@ export default new PubSub();
 4. The publish method will receive an event and a data, and we will iterate over the subscribers object, and for each subscriber that we found with the same event kind, we will call the function with the data.
 
 5. The export default new PubSub(); will create a new instance of the class, and we will export it.
+
+## Implementing an use case
+
+Now that we have the PubSub class, we can implement our use case, and ww will create a basic use case. Using some html elements and javascript we will create a simple page to show us the subscription, unsubscription, and publishing of events working.
+
+```javascript
+import "./styles.css";
+import PubSub from "./PubSub";
+
+const firstInput = document.getElementById("first-input");
+const secondInput = document.getElementById("second-input");
+
+const firstSubscriberBtn = document.getElementById("first-subscriber-btn");
+const secondSubscriberBtn = document.getElementById("second-subscriber-btn");
+const firstUnSubscriberBtn = document.getElementById("first-un-subscriber-btn");
+const secondUnSubscriberBtn = document.getElementById(
+  "second-un-subscriber-btn"
+);
+
+const textFirstSubscriber = document.getElementById("first-subscriber");
+const textSecondSubscriber = document.getElementById("second-subscriber");
+
+const firstText = (e) => (textFirstSubscriber.innerText = `${e}`);
+const secondText = (e) => (textSecondSubscriber.innerText = `${e}`);
+
+firstInput.addEventListener("input", (e) =>
+  PubSub.publish("first-event", e.target.value)
+);
+
+secondInput.addEventListener("input", (e) =>
+  PubSub.publish("second-event", e.target.value)
+);
+
+firstSubscriberBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  PubSub.subscribe("first-event", firstText);
+});
+
+firstUnSubscriberBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  PubSub.unsubscribe("first-event", firstText);
+});
+
+secondSubscriberBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  PubSub.subscribe("second-event", secondText);
+});
+
+secondUnSubscriberBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  PubSub.unsubscribe("second-event", secondText);
+});
+```
+
+1. The firstInput will listen for the input event, and when it happens, it will publish the first-event event, and the secondInput will listen for the same event, and when it happens, it will publish the second-event event.
+
+2. The firstSubscriberBtn will listen for the click event, and when it happens, it will subscribe the first-event event, and the firstUnSubscriberBtn will listen for the click event, and when it happens, it will unsubscribe the first-event event.
+
+3. The secondSubscriberBtn will listen for the click event, and when it happens, it will subscribe the second-event event, and the secondUnSubscriberBtn will listen for the click event, and when it happens, it will unsubscribe the second-event event.
+
+4. The textFirstSubscriber will listen for the first-event event, and when it happens, it will update the text with the value of the event, and the textSecondSubscriber will listen for the second-event event, and when it happens, it will update the text with the value of the event.
+
+5. The firstInput will listen for the input event, and when it happens, it will publish the first-event event, and the secondInput will listen for the same event, and when it happens, it will publish the second-event event.
+
+You can see the result of the use case working in the link below:
+https://codesandbox.io/s/pub-sub-7qvkr?from-embed
+
+## Conclusion
+
+Even you don't know how to implement it, it's very important to understand how Pub-Sub works, because it is very helpful since Pub-Sub is a very common pattern in many programming languages and libraries.
+
+I hope that you found this article helpful, and if you have any questions, please let me know in the comments section.
