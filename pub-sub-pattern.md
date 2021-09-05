@@ -88,7 +88,7 @@ export default new PubSub();
 
 ## Implementing an use case
 
-Now that we have the PubSub class, we can implement our use case, and ww will create a basic use case. Using some html elements and javascript we will create a simple page to show us the subscription, unsubscription, and publishing of events working.
+Now that we have the PubSub class, we can implement our use case, and we will create a basic use case. Using some html elements and javascript we will create a simple page to show us the subscription, unsubscription, and publishing of events working.
 
 ```javascript
 import "./styles.css";
