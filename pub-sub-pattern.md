@@ -75,3 +75,13 @@ class PubSub {
 
 export default new PubSub();
 ```
+
+1. The constructor of the class will create an empty object, and this object will be the base of our implementation, and we will store all the subscribers in this object.
+
+2. The subscribe method will receive an event and a function, and we will store the function in the subscribers object, every event should be a property of this object and the value of this property should be an array of functions. After that, we will return a function that will filter the function that we want to remove from the subscribers array.
+
+3. The unsubscribe method will receive an event and a function, and we will remove the function from the subscribers object using the event received to select what property of the object we want to remove the function from.
+
+4. The publish method will receive an event and a data, and we will iterate over the subscribers object, and for each subscriber that we found with the same event kind, we will call the function with the data.
+
+5. The export default new PubSub(); will create a new instance of the class, and we will export it.
