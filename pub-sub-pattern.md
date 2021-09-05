@@ -4,7 +4,9 @@ Hello everyone, in the last post I talked about observable pattern, and today I 
 
 ## How Pub-Sub works?
 
-This pattern help you when you want to dispatch an event, and you want that just people that are interested in this event knows what is happening, as long as Observable dispatch just one event for everyone, Pub-Sub can dispatch many events, and who are interested should subscribe in a specific event.
+This pattern help you when you want to dispatch an event, and you want that just components that are interested in this event knows what is happening, as long as Observable dispatch just one event for everyone, Pub-Sub can dispatch many events, and who are interested should subscribe in a specific event.
+
+![img](https://res.cloudinary.com/practicaldev/image/fetch/s--Q_RFMIEV--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://miro.medium.com/max/501/1%2ATSLaLllP_DcPQQOTpXbzeA.png)
 
 ### An Analogy
 
@@ -35,3 +37,41 @@ After the employers subscriptions, the companies dispatch the event, and the emp
 So, now we now how pub-sub works, and we can go on and implement it using javascript.
 
 ## Implementing Pub-Sub with javascript
+
+The first thing that we need to implement is the PubSub class, this class will be the base of our implementation. So, lets do it:
+
+```javascript
+class PubSub {
+  constructor() {
+    this.subscribers = {};
+  }
+
+  subscribe(event, fn) {
+    if (Array.isArray(this.subscribers[event])) {
+      this.subscribers[event] = [...this.subscribers[event], fn];
+    } else {
+      this.subscribers[event] = [fn];
+    }
+    return () => {
+      this.unsubscribe(event, fn);
+    };
+  }
+
+  unsubscribe(event, fn) {
+    this.subscribers[event] = this.subscribers[event].filter(
+      (sub) => sub !== fn
+    );
+  }
+
+  publish(event, data) {
+    if (Array.isArray(this.subscribers[event])) {
+      this.subscribers[event].forEach((sub) => {
+        sub(data);
+      });
+    }
+    return false;
+  }
+}
+
+export default new PubSub();
+```
