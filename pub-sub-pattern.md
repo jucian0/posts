@@ -1,16 +1,16 @@
 # The `Pub-Sub` pattern
 
-Hello everyone, in the last post I talked about observable pattern, and today I gonna talk about another patter called `Pub-Sub`, `Pub-Sub` has some differences with observable, and my plan is to explain this differences and show you how `Pub-Sub` works, and how you can implement it using javascript.
+Hello everyone, in the last post I talked about the Observable pattern, and today I'm going to talk about another patter called `Pub-Sub`, has some difference between `Pub-Sub` and `Observable`, and my plan is to explain this differences and show you how `Pub-Sub` works, and how you can implement it using javascript.
 
 ## How `Pub-Sub` works?
 
-This pattern help you when you want to dispatch an event, and you want that just components that are interested in this event knows what is happening, as long as Observable dispatch just one event for everyone, `Pub-Sub` can dispatch many events, and who are interested should subscribe in a specific event.
+This pattern helps you when you want to dispatch an event, and you want that just components that are interested in this event know what is happening, as long as Observable dispatch just one event for everyone, `Pub-Sub` can dispatch many events, and who are interested should subscribe in a specific event.
 
 ![img](https://res.cloudinary.com/practicaldev/image/fetch/s--Q_RFMIEV--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://miro.medium.com/max/501/1%2ATSLaLllP_DcPQQOTpXbzeA.png)
 
 ### An Analogy
 
-Some companies was interested in open new positions in their factories, for this reason, Ford, Volkswagen, and BMW make an announcement in the newspaper.
+Some companies were interested to open new positions in their factories, for this reason, Ford, Volkswagen, and BMW make an announcement in the newspaper.
 
 > Ford announcement: We are Ford, and we are very happy to announce that we have a new position for you, apply for our opportunities, and work with us, ford@ford.com
 
@@ -18,7 +18,7 @@ Some companies was interested in open new positions in their factories, for this
 
 > BMW announcement: We are BMW, and you can work with us building the most beautiful cars in the world, apply for our opportunities, and work with us, bmw@bmw.com
 
-After some days, many employees become interested in these companies opportunities, and every company answered their candidate by e-mail telling them more details about the job, and the opportunity:
+After some days, many candidates appeared interested in these companies opportunities, and every company answered their candidate by e-mail telling them more details about the job, and the opportunity:
 
 > Ford email: We are Ford, and we are very happy that you are interested in our new position, thanks for applying, and we will contact you soon.
 
@@ -26,7 +26,7 @@ After some days, many employees become interested in these companies opportuniti
 
 > BMW email: We are BMW, and we are very happy that you are interested in our new position, thanks for applying, and we will contact you soon.
 
-So, in the end of the process, every company sended a message to employees subscribed in their opportunity, saying the about the end of the process.
+So, at the end of the process, every company sent a message to employees subscribed in their opportunity, saying about the end of the process.
 
 ### Applying the analogy
 
