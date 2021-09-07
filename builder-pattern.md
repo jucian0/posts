@@ -8,7 +8,7 @@ Builder pattern is a creation pattern that allow us to create complex objects st
 
 Imagine that we want to create a house, we will need to create methods to build walls, floors, doors, windows, etc, something like that.
 
-```javascript
+```typescript
 const house = new HpHouseBuilder();
 
 house
@@ -23,45 +23,42 @@ house
 
 ## Builder Implementation
 
-In this example we will create a validation class to validate strings. We will make simple validations, like checking if the string is empty, max and min length, and regex.
+In this example we will create a validation class to validate strings using typescript, fell free to use your favorite programming language. We will make simple validations, like checking if the string is empty, max and min length, and regex.
 
-```javascript
+```typescript
 export class StringValidator {
+  constructor(private value: string, private messages: Array<string>) {}
 
-  messageError: Array<string> = [];
-
-  constructor(private value: string) {}
-
-  isEmpty(message:string): boolean {
+  isEmpty(message: string): boolean {
     if (this.value.trim().length === 0) {
-      this.messageError.push(message);
+      this.messages.push(message);
     }
-      return this;
+    return this;
   }
 
-  maxLength(max: number, message:string): boolean {
+  maxLength(max: number, message: string): boolean {
     if (this.value.length > max) {
-    this.messageError.push(message);
+      this.messages.push(message);
     }
-    return this
+    return this;
   }
 
-  minLength(min: number, message:string): boolean {
-      if (this.value.length < min) {
-      this.messageError.push(message);
-      }
-      return this
+  minLength(min: number, message: string): boolean {
+    if (this.value.length < min) {
+      this.messages.push(message);
+    }
+    return this;
   }
 
-  is(pattern: RegExp,message:string): boolean {
-      if(!pattern.test(this.value)) {
-      this.messageError.push(message);
-      }
-      this
+  is(pattern: RegExp, message: string): boolean {
+    if (!pattern.test(this.value)) {
+      this.messages.push(message);
+    }
+    this;
   }
 
   build(): Array<string> {
-    return this.messageError;
+    return this.messages;
   }
 }
 ```
