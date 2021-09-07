@@ -167,3 +167,9 @@ A brief explanation about the component implementation:
 5.  We have a function called `onChange` that receives an event and updates the value and the validation messages.
 6.  `onSubmit` is the function that will be called when the form is submitted.
 7.  In the last part we are just returning the form template.
+
+### Links
+
+You can see the result of this use case here: [Builder pattern use case](https://codesandbox.io/s/builder-pattern-reactjs-bs0sb?file=/src/components/Form.tsx)
+
+If you are interested to see the code of this example, you can check it here: [Builder pattern code](https://github.com/Jucian0/Bulder-pattern)
