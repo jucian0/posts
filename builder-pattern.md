@@ -19,8 +19,7 @@ house
   .buildDoors()
   .buildWindows()
   .buildRoof()
-  .buildGarage()
-  .buildPool();
+  ...
 ```
 
 ## Builder Implementation
@@ -65,7 +64,7 @@ export class StringValidator {
 }
 ```
 
-This is a very simple example of a validation class, but I believe that it is a good example to show how the builder pattern works. Let's a brief explanation about our implementation.
+This is a very simple example of a validation class, but I believe that it is a good example to show how the builder pattern works. Bellow you can see a brief explanation about our implementation.
 
 1.  Create a class called StringValidator.
 2.  Create a constructor that receives a string as a value and an array of strings as a message.
