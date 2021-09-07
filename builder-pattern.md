@@ -7,3 +7,34 @@ Hi everyone, today I gonna talk about the builder pattern. The builder pattern i
 Builder pattern is a creation pattern that allow us to create complex objects step by step. The idea is to have some methods to create parts of that object.
 
 Imagine that we want to create a house, we will need to create methods to build walls, floors, doors, windows, etc.
+
+## Builder Implementation
+
+In this example we will create a validation class, that will be used to validate the data that we will receive.
+
+```javascript
+class ValidationBuilder {
+  constructor() {
+    this.validation = {};
+  }
+
+  setName(name) {
+    this.validation.name = name;
+    return this;
+  }
+
+  setEmail(email) {
+    this.validation.email = email;
+    return this;
+  }
+
+  setPassword(password) {
+    this.validation.password = password;
+    return this;
+  }
+
+  build() {
+    return this.validation;
+  }
+}
+```
