@@ -173,3 +173,9 @@ A brief explanation about the component implementation:
 You can see the result of this use case here: [Builder pattern use case](https://codesandbox.io/s/builder-pattern-reactjs-bs0sb?file=/src/components/Form.tsx)
 
 If you are interested to see the code of this example, you can check it here: [Builder pattern code](https://github.com/Jucian0/Bulder-pattern)
+
+## Conclusion
+
+In this article, we learned how to implement the builder pattern in a simple way, and we used it in a React application. Builder pattern is extensively used in many libraries and frameworks, some of them are: Yup library validation, and Redux toolkit.
+
+I hope you enjoyed this article, and if you have any questions, please don't hesitate to contact me.
