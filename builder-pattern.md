@@ -62,3 +62,15 @@ export class StringValidator {
   }
 }
 ```
+
+This is a very simple example of a validation class, but I believe that it is a good example to show how the builder pattern works. Let's a brief explanation about our implementation.
+
+1.  Create a class called StringValidator.
+2.  Create a constructor that receives a string as a value and an array of strings as a message.
+3.  Create a method called isEmpty that receives a string, if the value is empty, it will add the message to the messages array, and return the instance.
+4.  Create a method called maxLength that receives a number and a string, if the value is greater than the number, it will add the message to the messages array, and return the instance.
+5.  Create a method called minLength that receives a number and a string, if the value is less than the number, it will add the message to the messages array, and return the instance.
+6.  Create a method called is that receives a regex and a string, if the value doesn't match the regex, it will add the message to the messages array, and return the instance.
+7.  Create a method called build that returns the messages array.
+
+In order to build the messages array, we need to return the instance, so we can chain the others methods.
