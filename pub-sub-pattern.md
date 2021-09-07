@@ -30,15 +30,15 @@ So, at the end of the process, every company sent a message to employees subscri
 
 ### Applying the analogy
 
-Let's understand how `Pub-Sub` works, though the analogy, the first thing that we need to understand is that the newspaper was the `Pub-Sub`, and the announcement was the event, and the email was the message, and the company was the publisher, and the employee was the subscriber.
+Let's understand how `Pub-Sub` works, the first thing that we need to understand is that the newspaper was the `Pub-Sub`, and the announcement was the event, and the email was the message, and the company was the publisher, and the employee was the subscriber.
 
-After the employers subscriptions, the companies dispatch the event, and the employees subscribed in the event receive the message. This example show us that the `Pub-Sub` is not about just one event, but many events, and the subscriber should subscribe in a specific event.
+After the candidates subscriptions, the companies dispatch the event, and the employees subscribed in the event receive the message. This example shows us that the `Pub-Sub` is not about just one event, but many events, and the subscriber should subscribe to a specific event.
 
-So, now we now how `Pub-Sub` works, and we can go on and implement it using javascript.
+So, now we know how `Pub-Sub` works, and we can go on and implement it using javascript.
 
 ## Implementing `Pub-Sub` with javascript
 
-The first thing that we need to implement is the PubSub class, this class will be the base of our implementation. So, lets do it:
+The first thing that we need to implement is the PubSub class, this class will be the base of our implementation. So, let's do it:
 
 ```javascript
 class PubSub {
@@ -80,9 +80,9 @@ export default new PubSub();
 
 2. The subscribe method will receive an event and a function, and we will store the function in the subscribers object, every event should be a property of this object and the value of this property should be an array of functions. After that, we will return a function that will filter the function that we want to remove from the subscribers array.
 
-3. The unsubscribe method will receive an event and a function, and we will select the property of the subscriber object that match the event received as parameter, and we will filter the function that we want to remove from the subscribers array.
+3. The unsubscribe method will receive an event and a function, and we will select the property of the subscriber object that matches the event received as a parameter, and we will filter the function that we want to remove from the subscribers array.
 
-4. The publish method will receive an event and a data, and we will iterate over the subscribers object, and for each subscriber that match the event received, we will call the function with the data.
+4. The publish method will receive an event and data, and we will iterate over the subscribers object, and for each subscriber that matches the event received, we will call the function with the data.
 
 5. The export default new PubSub(); will create a new instance of the class, and we will export it.
 
