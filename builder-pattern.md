@@ -28,7 +28,8 @@ In this example we will create a validation class to validate strings using type
 
 ```typescript
 export class StringValidator {
-  constructor(private value: string, private messages: Array<string>) {}
+  private messages: Array<string>;
+  constructor(private value: string) {}
 
   isEmpty(message: string): boolean {
     if (this.value.trim().length === 0) {
@@ -66,8 +67,8 @@ export class StringValidator {
 
 This is a very simple example of a validation class, but I believe that it is a good example to show how the builder pattern works. Bellow you can see a brief explanation about our implementation.
 
-1.  Create a class called StringValidator.
-2.  Create a constructor that receives a string as a value and an array of strings as a message.
+1.  Create a class called StringValidator with a property called messages to keep all the messages. This the messages that should be displayed when the validation fails.
+2.  Create a constructor that receives a string as a value.
 3.  Create a method called isEmpty that receives a string, if the value is empty, it will add the message to the messages array, and return the instance.
 4.  Create a method called maxLength that receives a number and a string, if the value is greater than the number, it will add the message to the messages array, and return the instance.
 5.  Create a method called minLength that receives a number and a string, if the value is less than the number, it will add the message to the messages array, and return the instance.
