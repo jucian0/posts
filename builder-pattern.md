@@ -38,25 +38,25 @@ export class StringValidator {
     return this;
   }
 
-  maxLength(max: number, message: string): boolean {
+  maxLength(max: number, message: string) {
     if (this.value.length > max) {
       this.messages.push(message);
     }
     return this;
   }
 
-  minLength(min: number, message: string): boolean {
+  minLength(min: number, message: string) {
     if (this.value.length < min) {
       this.messages.push(message);
     }
     return this;
   }
 
-  is(pattern: RegExp, message: string): boolean {
+  is(pattern: RegExp, message: string) {
     if (!pattern.test(this.value)) {
       this.messages.push(message);
     }
-    this;
+    return this;
   }
 
   build(): Array<string> {
@@ -91,7 +91,7 @@ Okay, now we have a new app, let's go to the src folder and create a validation 
 
 ```bash
 cd validation-app
-touch src/validation/ValidationString.ts
+touch src/validations/ValidationString.ts
 ```
 
 With your favorite text editor, open the file and write the code above, in the implementation section.
@@ -99,8 +99,8 @@ With your favorite text editor, open the file and write the code above, in the i
 The next step is to create a component that will be used to display the validation messages, let's create a component called ValidationMessage in the `src/components` folder.
 
 ```typescript
-import React from 'react';
-import { StringValidator } from './validation/ValidationString';
+import React from "react";
+import { StringValidator } from "./validations/ValidationString";
 
 function ValidationMessage(props: { messages: Array<string> }) {
   return (
@@ -110,6 +110,7 @@ function ValidationMessage(props: { messages: Array<string> }) {
       ))}
     </div>
   );
+}
 ```
 
 A brief explanation about the component:
@@ -121,36 +122,40 @@ A brief explanation about the component:
 Let's go to the next step, the form component. We need to create a simple form with just one input, and a button. Let's create a component called Form in the `src/components` folder.
 
 ```typescript
+import React from "react";
+import { StringValidator } from "./../validations/ValidationString";
+import { ValidationMessage } from "./ValidationMessage";
 
-  import React from 'react';
-  import { ValidationMessage } from './components/ValidationMessage';
-  import { StringValidator } from './validation/ValidationString';
+const makeValidation = (value: string) =>
+  new StringValidator(value)
+    .maxLength(8, "Max length is 8.")
+    .is(/[A-Za-z]/, "Should has almost one latter.")
+    .build();
 
-  const makeValidation =(value:string)=> new StringValidator(value);
+export function Form() {
+  const [value, setValue] = React.useState("");
+  const [validation, setValidation] = React.useState(makeValidation(value));
 
-  function Form() {
-    const [value, setValue] = React.useState('');
-    const [validation, setValidation] = React.useState(makeValidation(value));
+  const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(event.target.value);
+  };
 
-    const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-      setValue(event.target.value);
-      setValidation(makeValidation(event.target.value));
-    };
+  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setValidation(makeValidation(value));
+    /**
+     * Do something with the value
+     **/
+  };
 
-    const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-      event.preventDefault();
-      /**
-       * Do something with the value
-       **/
-    };
-
-    return (
-      <form onSubmit={onSubmit}>
-        <input type="text" value={value} onChange={onChange} />
-        <ValidationMessage messages={validation.build()} />
-        <button type="submit">Submit</button>
-      </form>
-    );
+  return (
+    <form onSubmit={onSubmit}>
+      <input type="text" value={value} onChange={onChange} />
+      <ValidationMessage messages={validation} />
+      <button type="submit">Submit</button>
+    </form>
+  );
+}
 ```
 
 A brief explanation about the component implementation:
