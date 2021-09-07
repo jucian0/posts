@@ -4,6 +4,8 @@ Hi everyone, today I gonna talk about the Builder pattern. The Builder pattern i
 
 ## How Builder pattern works?
 
+> The intent of the Builder design pattern is to separate the construction of a complex object from its representation. By doing so, the same construction process can create different representations.[1]
+
 Builder pattern is a creation pattern that allow us to create complex objects step by step. The idea is to have some methods to create parts of that object.
 
 Imagine that we want to create a house, we will need to create methods to build walls, floors, doors, windows, etc, something like that.
