@@ -1,6 +1,6 @@
 # The `Pub-Sub` pattern
 
-Hello everyone, in the last post I talked about the Observable pattern, and today I'm going to talk about another patter called `Pub-Sub`, has some difference between `Pub-Sub` and `Observable`, and my plan is to explain this differences and show you how `Pub-Sub` works, and how you can implement it using javascript.
+Hello everyone, in the last post I talked about the Observable pattern, and today I'm going to talk about another patter called `Pub-Sub`, there are some difference between `Pub-Sub` and `Observable`, and my plan is to explain this differences and show you how `Pub-Sub` works, and how you can implement it using javascript.
 
 ## How `Pub-Sub` works?
 
