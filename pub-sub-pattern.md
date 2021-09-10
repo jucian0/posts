@@ -150,7 +150,7 @@ secondUnSubscriberBtn.addEventListener("click", (e) => {
 5. The firstInput will listen for the input event, and when it happens, it will publish the first-event event, and the secondInput will listen for the same event, and when it happens, it will publish the second-event event.
 
 You can see the result of the use case working in the link below:
-https://codesandbox.io/s/`Pub-Sub`-7qvkr?from-embed
+https://codesandbox.io/s/Pub-Sub-7qvkr?from-embed
 
 ## Conclusion
 
