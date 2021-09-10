@@ -86,7 +86,7 @@ export default new PubSub();
 
 5. The export default new PubSub(); will create a new instance of the class, and we will export it.
 
-## Implementing an use case
+## Implementing a use case
 
 Now that we have the PubSub class, we can implement our use case, and we will create a basic use case. Using some html elements and javascript we will create a simple page to show us the subscription, unsubscription, and publishing of events working.
 
