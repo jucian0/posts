@@ -1,40 +1,40 @@
 # The `Pub-Sub` pattern
 
-Hello everyone, in the last post I talked about the Observable pattern, and today I'm going to talk about another patter called `Pub-Sub`, there are some difference between `Pub-Sub` and `Observable`, and my plan is to explain this differences and show you how `Pub-Sub` works, and how you can implement it using javascript.
+Hello everyone, in the last post I talked about the Observable pattern, and today I'm going to talk about another patter called `Pub-Sub`. There are some difference between `Pub-Sub` and `Observable`, and my plan is to explain these differences and show you how `Pub-Sub` works, and how you can implement it using javascript.
 
 ## How `Pub-Sub` works?
 
-This pattern helps you when you want to dispatch an event, and you want that just components that are interested in this event know what is happening, as long as Observable dispatch just one event for everyone, `Pub-Sub` can dispatch many events, and who are interested should subscribe in a specific event.
+This pattern helps you when you want to dispatch an event; and you want the components that are interested in this event to know what is happening, Observable can only dispatch one event for everyone, but `Pub-Sub` can dispatch many events, and who are interested should subscribe in a specific event.
 
 ![img](https://res.cloudinary.com/practicaldev/image/fetch/s--Q_RFMIEV--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://miro.medium.com/max/501/1%2ATSLaLllP_DcPQQOTpXbzeA.png)
 
 ### An Analogy
 
-Some companies were interested to open new positions in their factories, for this reason, Ford, Volkswagen, and BMW make an announcement in the newspaper.
+Ford, Volkswagen, and BMW wre interested in advertising new positions in their factories and decided to announce them in the newspaper.
 
-> Ford announcement: We are Ford, and we are very happy to announce that we have a new position for you, apply for our opportunities, and work with us, ford@ford.com
+> Ford's announcement: At Ford, we are very happy to announce a new senior position available. Please apply for this opportunity, and come and work with us, ford@ford.com
 
-> Volkswagen announcement: We are Volkswagen, and you can work with us, apply for our opportunities, and work with us, volkswagen@volkswagen.com
+> Volkswagen's announcement: At Volkswagen, we are very happy to announcea new senior position available.Please, apply for this opportunity, and come and work with us, volkswagen@volkswagen.com
 
-> BMW announcement: We are BMW, and you can work with us building the most beautiful cars in the world, apply for our opportunities, and work with us, bmw@bmw.com
+> BMW's announcement: At BMW,  we are very happy to announce a new senior position available.Please apply for this opportuninty, and work with us, bmw@bmw.com
 
-After some days, many candidates appeared interested in these companies opportunities, and every company answered their candidate by e-mail telling them more details about the job, and the opportunity:
+After a few days, many candidates applied for the opportunities and each company answered their candidates by e-mail, giving them more details about the job.
 
-> Ford email: We are Ford, and we are very happy that you are interested in our new position, thanks for applying, and we will contact you soon.
+> Ford email: At Ford, we are very pleased that you are interested in our new position. Thank you for applying; and we will be in contact soon.
 
-> Volkswagen email: We are Volkswagen, and we are very happy that you are interested in our new position, thanks for applying, and we will contact you soon.
+> Volkswagen email: At Volkswagen, we are very pleased that you are interested in our new position. Thank you for applying; and we will be in contact soon.
 
-> BMW email: We are BMW, and we are very happy that you are interested in our new position, thanks for applying, and we will contact you soon.
+> BMW email: At BMW, we are very pleased that you are interested in our new position. Thank you for applying; and we will be in contact soon.
 
 So, at the end of the process, every company sent a message to employees subscribed in their opportunity, saying about the end of the process.
 
 ### Applying the analogy
 
-Let's understand how `Pub-Sub` works, the first thing that we need to understand is that the newspaper was the `Pub-Sub`, and the announcement was the event, and the email was the message, and the company was the publisher, and the employee was the subscriber.
+Let's understand how `Pub-Sub` works, the first thing that we need to understand is that the newspaper was the `Pub-Sub`, the announcement was the event, the email was the message, the company was the publisher, and the candidate was the subscriber.
 
-After the candidates subscriptions, the companies dispatch the event, and the employees subscribed in the event receive the message. This example shows us that the `Pub-Sub` is not about just one event, but many events, and the subscriber should subscribe to a specific event.
+After the candidate's subscriptions, the companies dispatched the event, and the candidates subscribed in the event received the message. This example shows us that the `Pub-Sub` is not about just one event, but many events, and the subscriber should subscribe to a specific event.
 
-So, now we know how `Pub-Sub` works, and we can go on and implement it using javascript.
+So, now we know how `Pub-Sub` works, we can go on and implement it using javascript.
 
 ## Implementing `Pub-Sub` with javascript
 
@@ -154,6 +154,6 @@ https://codesandbox.io/s/Pub-Sub-7qvkr?from-embed
 
 ## Conclusion
 
-Even you don't know how to implement it, it's very important to understand how `Pub-Sub` works, because it is very helpful since `Pub-Sub` is a very common pattern in many programming languages and libraries.
+Even if you don't know how to implement it, it's very important to understand how `Pub-Sub` works, as `Pub-Sub` is a very common pattern in many programming languages and libraries.
 
 I hope that you found this article helpful, and if you have any questions, please let me know in the comments section.
