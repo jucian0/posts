@@ -14,9 +14,9 @@ Ford, Volkswagen, and BMW wre interested in advertising new positions in their f
 
 > Ford's announcement: At Ford, we are very happy to announce a new senior position available. Please apply for this opportunity, and come and work with us, ford@ford.com
 
-> Volkswagen's announcement: At Volkswagen, we are very happy to announcea new senior position available.Please, apply for this opportunity, and come and work with us, volkswagen@volkswagen.com
+> Volkswagen's announcement: At Volkswagen, we are very happy to announce a new senior position available.Please, apply for this opportunity, and come and work with us, volkswagen@volkswagen.com
 
-> BMW's announcement: At BMW,  we are very happy to announce a new senior position available.Please apply for this opportuninty, and work with us, bmw@bmw.com
+> BMW's announcement: At BMW,  we are very happy to announce a new senior position available. Please apply for this opportuninty, and work with us, bmw@bmw.com
 
 After a few days, many candidates applied for the opportunities and each company answered their candidates by e-mail, giving them more details about the job.
 
