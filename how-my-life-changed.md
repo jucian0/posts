@@ -1,7 +1,7 @@
 # How simple things changed my life.
 
 I was born in Paraguay, a small country close to Brazil, my parents worked for a long time as farmers, and when I was eight years I started as a farmer worker too, we were planting cotton, and everything was going well, but our luck was going to change.
-When you work planting cotton, it's necessary a certain quantity of rain, but if you have a lot of rain, you can lose everything.
+When you work in a cotton field, it's necessary a certain quantity of rain, but if you have a lot of rain, you can lose everything.
 So, the rain did not stop for several months, and we lost everything, we were devastated.
 
 ## How one question changed my life.
@@ -15,10 +15,10 @@ Arriving in Brazil, my parents started to work and I and my siblings had an oppo
 After some years our lives enhanced, but in my mind, and in my parent's minds, school, college was just optional thing, it's easier to change your financial condition than change your mind. Before starting to work as a software developer I worked as a manual laborer, topography, metallurgy professional for ten years.
 
 ## How a blog changed my life
-Since I always liked computers and I have a great curiosity about how things work, I decided to start a blog about technology, computers, and other topics.
+Since I always liked computers and I have a great curiosity about how things work, I decided to start a blog about technology, computers, and other topics. Writing about technology made knew new people, and some software developers, that was my first experience with programming.
 
 ## How my wife changed my life.
-I always liked computers and maths, but I never thought that I could work with these things as a professional.
+I always liked computers and maths, but I never thought that I could work with those things as a professional.
 
 Maybe the title of this publication should be "How my life changed after I meet my wife", she told me that I should continue my study, and start to do what I like to do, so I decided to go to college and try to work as a software developer.
 
