@@ -20,7 +20,7 @@ Since I always liked computers and I have a great curiosity about how things wor
 ## How my wife changed my life.
 I always liked computers and maths, but I never thought that I could work with those things as a professional.
 
-Maybe the title of this publication should be "How my life changed after I meet my wife", she told me that I should continue my study, and start to do what I like to do, so I decided to go to college and try to work as a software developer.
+Maybe the title of this publication should be "How my life changed after I meet my wife", she told me that I should continue studying, and start to do what I really like to do, so I decided to go to college and try to work as a software developer.
 
 ## How college changed my life
 Before college, I never thought that I could work with IT, that was a hobby for me, and I was happy with that condition, but there was a lot of o changes since then, besides learning many things college makes me a few more confident about myself, I realize that there are no differences between me and other people, I could do what I want to do.
