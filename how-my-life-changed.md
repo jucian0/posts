@@ -1,41 +1,38 @@
 # How simple things changed my life.
 
-I was born in Paraguay, a small country close to Brazil, my parents worked for a long time as farmers, and when I was eight years I started as a farmer worker too, we were planting cotton, and everything was going well, but our luck was going to change.
-When you work in a cotton field, it's necessary a certain quantity of rain, but if you have a lot of rain, you can lose everything.
-So, the rain did not stop for several months, and we lost everything, we were devastated.
+I was born in Paraguay, a small country close to Brazil, where my parents worked for a long time as cotton, rice an beans farmers. When I was eight years old, I joined them as a farm worker, and everything was going well, but unfortunately our luck was about to change. Planting cotton requires a very specific quantity of rain, if you have much, you can lose everything. It began to rain, and it didn't stop for several months, we lost everything. We were devastated! 
 
 ## How one question changed my life.
-That was when my father found me crying in the middle of the cotton field, he asked me; 
-Why are you crying?
-And I answered him;
-What are we doing here? We lost everything.
 
-So, something happened in my dad's mind, and after we lose everything my parents decided to move to Brazil.
-Arriving in Brazil, my parents started to work and I and my siblings had an opportunity to study.
-After some years our lives enhanced, but in my mind, and in my parent's minds, school, college was just optional thing, it's easier to change your financial condition than change your mind. Before starting to work as a software developer I worked as a manual laborer, topography, metallurgy professional for ten years.
+My father found me crying in the middle of the cotton field, and he asked me, "Why are you crying? What is wrong with you?" I answered him, "What are we doing were? We have lost everything."
+
+This caused, something to change in my father's mind and he decided to move our family to Brazil. After arriving in our new country, parents got work and my siblings and I had a opportunity to study. After years our lives got much better, but in my mind and my parent's minds, school and college were just optional. It's much easier to change your financial situation than to change your thinking. Before starting work as software developer, I worked as a manual laborer, topographer assistant, and a metallurgy professional for ten years.
 
 ## How a blog changed my life
-Since I always liked computers and I have a great curiosity about how things work, I decided to start a blog about technology, computers, and other topics. Writing about technology made knew new people, and some software developers, that was my first experience with programming.
+
+With my love of computers and a great curiosity for how things work, I decided to start a blog about technology, computers, and other topics. Writing about technology made knew new people, and some software developers, that was my first experience with programming. Eventually I decided to improve my blog, and add more features. But I didn't know how to do that, then some new friends teach me my first programming lessons. My first programing language was PHP, and I was very happy with it.
 
 ## How my wife changed my life.
-I always liked computers and maths, but I never thought that I could work with those things as a professional.
 
-Maybe the title of this publication should be "How my life changed after I meet my wife", she told me that I should continue studying, and start to do what I really like to do, so I decided to go to college and try to work as a software developer.
-
+Maybe the title of this publication should be "How my wife changed my life", before her I was a little afraid to try new things. As she encouraged me to continue studying and to reach for what I wanted to do. As I have always liked computers and math, but I never thought that I could do them professionally, I decided to go to college and become a software developer. 
 ## How college changed my life
-Before college, I never thought that I could work with IT, that was a hobby for me, and I was happy with that condition, but there was a lot of o changes since then, besides learning many things college makes me a few more confident about myself, I realize that there are no differences between me and other people, I could do what I want to do.
+
+Besides learning many new things, college helped me feel more confident about myself and during my time there, I realized that  there were very little differences between me and other people. In fact, if I worked hard enough, I could do exactly what I wanted to do.
+
+Cultural differences can make you fell less confident and more insecure.
 
 ## How starting to work as a software developer changed my life
-Even after I reach my goal to start working as a software developer, there were many kinds of stuff that I realized that I should change in my life, the most important one was, how I see the world, the people, and how can I deal with all them.
 
-Being able to live with different people and cultures changed me, and makes me more human.
-I had the opportunity to work and learn with awesome people every day, some of them were not so awesome, but I could learn almost one thing with every one of them.
+Even after I reached my goal of becoming a software developer, I realized that there were many other things that I needed to change in my life. The most important of these was, how I saw the world and the people in it, and how can I relate to them.
+
+Becoming more culturally aware and tolerant of other people and cultures has changed me and made me more human. I have had the opportunity to work with, and learn from, some amazing (and some not so amazing) people every day, but even with those that tested me, I learned at least one thing with every one of them.
 
 ## Conclusion
-I've learned that changing your mind is harder than changing your financial situation, so the most important thing that you can do for yourself is; to improve yourself as a human, open your mind, be a kind person.
 
-Another lesson that I learned was, "do your best",  "trust people", I could not change my life if I did not trust people. If you don't know something, don't hesitate to ask, people can help you, but they need to know that you need help.
+I've learned that changing your mind is much harder than changing your financial situation, so the most important thing that we can do for ourselves os to improve ourselves as humans. We need to open our minds and be kind.
 
-My life changed when I realized that I need to do more than the default, I remember when I was donning college, I had many doubts about a specific topic, and I decided to ask my professor about this, he answered me; "I have 10 minutes from here to university park", in old time I never would do it, but I was decided to do, so I used this 10 minutes do ask all my questions.
+Another lesson that I learned was to "do your best" "and to trust people". I could not have changed my life if I had no trusted people along the way. If you don't know something, don't hesitate to ask. People want to help you for many reasons, but they nned to know that you need help first.
+
+My life changed substantially when I realized that I needed to exceed my own expectations. I remember when I was at college and had  some doubts about a course  I was taking and decided to ask my professor about them. He said "I have 10 minutes from here to university park." in the past I would never have taken him up on his offer, but i did and used those 10 minutes to ask all the questions I had.
 
 If you want to go where others don't go, do what others don't do.
