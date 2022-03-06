@@ -10,7 +10,7 @@ This caused, something to change in my father's mind and he decided to move our 
 
 ## How a blog changed my life
 
-With my love of computers and a great curiosity for how things work, I decided to start a blog about technology, computers, and other topics. Writing about technology made knew new people, and some software developers, that was my first experience with programming. Eventually I decided to improve my blog, and add more features. But I didn't know how to do that, then some new friends teach me my first programming lessons. My first programing language was PHP, and I was very happy with it.
+With my love of computers and a great curiosity for how things work, I decided to start a blog about technology, computers, and other topics. Writing about technology made knew new people, and some software developers, that was my first experience with programming. Eventually I decided to improve my blog, and add more features. But I didn't know how to do that, then some new friends teach me my first programming lessons. My first programming language was PHP, and I was very happy with it.
 
 ## How my wife changed my life.
 
@@ -29,7 +29,7 @@ Becoming more culturally aware and tolerant of other people and cultures has cha
 
 ## Conclusion
 
-I've learned that changing your mind is much harder than changing your financial situation, so the most important thing that we can do for ourselves os to improve ourselves as humans. We need to open our minds and be kind.
+I've learned that changing your mind is much harder than changing your financial situation, so the most important thing that we can do for ourselves is to improve ourselves as humans. We need to open our minds and be kind.
 
 Another lesson that I learned was to "do your best" "and to trust people". I could not have changed my life if I had no trusted people along the way. If you don't know something, don't hesitate to ask. People want to help you for many reasons, but they nned to know that you need help first.
 
