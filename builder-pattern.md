@@ -1,6 +1,6 @@
 # Builder pattern.
 
-Hi everyone, today I gonna talk about the Builder pattern. The Builder pattern is a design pattern that allows us to create complex objects with a simple interface. Maybe you don't know what a builder pattern is, but I guarantee that this pattern is extensively used in many libraries and frameworks, and we will understand and implement it in this article, building a validation class.
+Hi everyone, today I'm going to talk about the Builder pattern. The Builder pattern is a design pattern that allows us to create complex objects with a simple interface. Maybe you don't know what a builder pattern is, but I guarantee that this pattern is extensively used in many libraries and frameworks, and we will understand and implement it in this article, building a validation class.
 
 ## How Builder pattern works?
 
@@ -24,7 +24,7 @@ house
 
 ## Builder Implementation
 
-In this example we will create a validation class to validate strings using typescript, fell free to use your favorite programming language. We will make simple validations, like checking if the string is empty, max and min length, and regex.
+In this example, we will create a validation class to validate strings using typescript, feel free to use your favorite programming language. We will make simple validations, like checking if the string is empty, max and min length, and regex.
 
 ```typescript
 export class StringValidator {
@@ -65,9 +65,9 @@ export class StringValidator {
 }
 ```
 
-This is a very simple example of a validation class, but I believe that it is a good example to show how the builder pattern works. Bellow you can see a brief explanation about our implementation.
+This is a very simple example of a validation class, but I believe that it is a good example to show how the builder pattern works. Below, you can see a brief explanation about our implementation.
 
-1.  Create a class called StringValidator with a property called messages to keep all the messages. This the messages that should be displayed when the validation fails.
+1.  Create a class called StringValidator with a property called messages to keep all the messages. This is the messages that should be displayed when the validation fails.
 2.  Create a `constructor` that receives a string as a value.
 3.  Create a method called `isEmpty` that receives a string, if the value is empty, it will add the message to the messages array, and return the instance.
 4.  Create a method called `maxLength` that receives a number and a string, if the value is greater than the number, it will add the message to the messages array, and return the instance.
@@ -79,9 +79,9 @@ In order to build the messages array, we need to return the instance by return `
 
 # Use Case
 
-In your use case, we will need to create a simple app with a small form, I'm going to use React, fell free to use your favorite framework.
+In your use case, we will need to create a simple app with a small form, I'm going to use React, feel free to use your favorite framework.
 
-The first step is to create a app, we can do that using CRA, with the following command:
+The first step is to create an app, we can do that using CRA, with the following command:
 
 ```bash
 npx create-react-app validation-app
@@ -166,7 +166,7 @@ A brief explanation about the component implementation:
 4.  Using the `React.useState` hook to create a state variable called `value` and a state variable called `validation` that will hold the validation messages.
 5.  We have a function called `onChange` that receives an event and updates the value and the validation messages.
 6.  `onSubmit` is the function that will be called when the form is submitted.
-7.  In the last part we are just returning the form template.
+7.  In the last part, we are just returning the form template.
 
 ### Links
 
