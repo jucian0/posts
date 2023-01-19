@@ -1,5 +1,7 @@
 # The ultimate form library that you will need
 
+Hello everyone, in this tutorial I'm going to show how to create forms easily using `use-form` package, I hope you find this article useful.
+
 With the use-form library, creating and managing forms in React has never been easier. The library provides a simple and intuitive API for handling form submissions, validation, and more.
 
 In this tutorial, we will go through the steps of creating and using a form hook with the use-form library. We will also cover how to validate form fields using the Yup library and how to display validation errors to the user.
