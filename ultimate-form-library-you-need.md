@@ -18,6 +18,8 @@ or
 yarn add @use-form/use-form
 ```
 
+> Repository: take a look at the [GitHub repository](https://github.com/Jucian0/useform)
+
 ## 1. Creating the Form Hook
 
 The first step in using use-form is to create a form hook. This can be done by calling the createForm function and passing in an object with an initialValues property. The initialValues property should contain an object with the keys and initial values of the fields in your form.
@@ -108,4 +110,4 @@ const LoginForm = () => {
 
 ## Conclusion
 
-In conclusion, the use-form library provides a simple and intuitive way to create and manage forms in React. It allows you to easily register form fields, handle form submissions, and validate form field values. By using the validationSchema feature and libraries like Yup or Zod, you can easily implement validation for your forms and display errors to the user. With the use-form library, creating and managing forms in React becomes a breeze. You can also customize the form by adding additional form fields or custom validation logic.
+The use-form library has many others resources, and you can find its in the [documentation](https://www.useform.org/), also the library provides a simple and intuitive way to create and manage forms in React. It allows you to easily register form fields, handle form submissions, and validate form field values. By using the validationSchema feature and libraries like Yup or Zod, you can easily implement validation for your forms and display errors to the user. With the use-form library, creating and managing forms in React becomes a breeze. You can also customize the form by adding additional form fields or custom validation logic.
