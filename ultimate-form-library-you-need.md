@@ -4,6 +4,20 @@ With the use-form library, creating and managing forms in React has never been e
 
 In this tutorial, we will go through the steps of creating and using a form hook with the use-form library. We will also cover how to validate form fields using the Yup library and how to display validation errors to the user.
 
+## Installation
+
+To install use-form in your project, use npm or yarn:
+
+```bash
+npm install @use-form/use-form
+```
+
+or
+
+```bash
+yarn add @use-form/use-form
+```
+
 ## 1. Creating the Form Hook
 
 The first step in using use-form is to create a form hook. This can be done by calling the createForm function and passing in an object with an initialValues property. The initialValues property should contain an object with the keys and initial values of the fields in your form.
