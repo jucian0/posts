@@ -35,6 +35,8 @@ const useLoginForm = createForm({
 });
 ```
 
+> Yeah, this approach look like zustand.
+
 ## 2. Using the Form Hook in a Form Component
 
 Once you have created the form hook, you can use it in your form component. The hook provides several functions that you can use to manage the form, including handleSubmit, register, touched, and errors.
