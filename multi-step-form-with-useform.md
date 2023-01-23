@@ -113,9 +113,9 @@ The components of the steps should contain the form fields, and manage them.
 
 ### Codding BasicInfoStep
 
-- The first thing we need to do is import, and use the 'useWizard' hook. This hook manages the Wizard step position. It should be more convenient if we could manage it from `Form`, as it could save some lines of code.
+- The first thing we need to do is import, and use the 'useWizard' hook. This hook manages the Wizard step position. It should be more convenient if we could manage it from `Form`, as it could save some lines of code. Unfortunately `react-use-wizard` doesn't allow it.
 
-As a second step, import the `usePersonForm` hook, as we are about to use it here, to register each field with the register function.
+- As a second step, import the `usePersonForm` hook, as we are about to use it here, to register each field with the register function.
 
 - The last step is to add some buttons to navigate to the next step and reset the form value.
 
