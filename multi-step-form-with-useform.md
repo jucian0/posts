@@ -1,20 +1,18 @@
 # Multi-step form using useForm library
 
-Hi folks, in this tutorial I want to show you, how easily you can build a multi-step form using `use-form` library, and `react-use-wizard`. This kind of forms is super useful when you want to save complex, or forms with many fields, so, let's do that.
+Hi folks, in this tutorial I want to show you how easily you can build a multi-step form using `use-form` library, and `react-use-wizard`. These forms are super useful when you want to save complicated forms or forms with many fields, so let's do that.
 
 ## Introduction
 
-One of the challenges to build multi-step forms is how to manage the entire form across many step components that should keep parts of the same form, with the same validation schema, same submit button, and same state. Using another libraries forms, you should do that by some implementation of React Context API, and `useContext` hook.
+One of the challenges of building multi-step forms is how to manage the entire form across many step components that should keep parts of the same form, with the same validation schema, same submit button, and same state. By using another library's forms, you should use React's Context API, and the `useContext` hook.
 
-But when using `use-form`, you don't need anything of this, you just have to create just one form, and use it across of the steps, let start, and you will figure out how this is possible.
+By contrast, when you use the `use-form`, you do not need anything like this. You need to create one form and use it across all steps. Let's get started and you'll see how to do it.
 
 ## Preparing the application
 
-The first thing we need to do is to prepare an application to develop your example of multi-step form, we can do that, by using React + Vite, using [Codesandbox](https://codesandbox.io) it can be easily, there are template for React + Vite on Codesandbox.
+Our first task is to prepare an application to develop your example of a multi-step form. This can be done with React + Vite, and with Codesandbox (https://codesandbox.io) it will be easier since there are templates for React + Vite on Codesandbox.
 
-After that, we should add some dependencies to develop your example, obviously we are going to install `@use-form/use-form`, `react-use-wizard`, and to save some time, and have a beautiful result, we can add `chakra-ui`, fell free to use another library or CSS library.
-
-> You can just add those packages in `package.json` on Codesandbox, or if you are developing in localhost, run the fallowing command:
+Next, we need to install some dependencies in order to develop your example, so we will install `@use-form/use-form`, `react-use-wizard`, and to save some time and have a beautiful result, we can add 'chakra-ui'. Feel free to use another library or CSS library.
 
 ```bash
     yarn add @use-form/use-form react-use-wizard
@@ -26,7 +24,7 @@ yarn add @chakra-ui/react @emotion/react @emotion/styled framer-motion
 
 ## Creating the application
 
-First step is to organize the `App.tsx` file, we are going to add a title, and some stuff to make the layout look better.
+The first step is to organize the `App.tsx` file. We are about to add a title, and some stuff to make the layout look better.
 
 ```tsx
 import { ChakraProvider, Text, Box, Input } from "@chakra-ui/react";
@@ -48,12 +46,13 @@ export default App;
 
 ## Creating the form
 
-Templates, and components aren't the first thing we need to think were, first, we need to think what is really important, and what are we building. We are building a multi-step form, so, before to develop the templates, ans components, we need to know how this form will works, if there are any rules, or validations, and the fields that we will have in it,and how many steps we need.
+Templates and components aren't the first things we need to think about, first, we need to think about what is really important, and what we are building. In order to build a multi-step form, we need to know how this form will work, if there are any rules or validations, how many fields it will have, and how many steps it will require before we develop the templates and components.
 
-In this example, let develop a form that should submit information about a person, this form should have two steps:
+In this example, let's develop a form that submits information about a person. This form should have two steps:
 
-- First step will deal with basic information about this person, like; first name, last name, and age.
-- Second step will deal with complementary information, it's, address; street, city, zip code.
+- The first step will deal with basic information about this person, like first name, last name, and age.
+
+- In the second step, we will deal with complementary information, such as city, street, and zip code.
 
 ## Codding the usePersonForm
 
@@ -78,7 +77,7 @@ export const usePersonForm = createForm({
 
 ## Codding the Form component
 
-The `Form` component should keep all the steps, and the event handlers for `submit`, and `reset` events, this components:
+The `Form` component should contain all the steps, and the event handlers for `submit`, and `reset` events:
 
 ```tsx
 import { Person, usePersonForm } from "./usePersonForm";
@@ -110,13 +109,15 @@ export function PersonForm() {
 
 ## Codding steps
 
-Steps components should keep the form fields, and manage it.
+The components of the steps should contain the form fields, and manage them.
 
 ### Codding BasicInfoStep
 
-- The first thing we need to do is to import, and use `useWizard` hook, this hook manage the Wizard step position, it should be more convenient if we could manage it from `Form`, it could save some lines of code.
-- The second step is to import, and use `usePersonForm` hook, we are going to use this hook here to register every field with the register function.
-- The last step is to add some buttons to navigate to next step, and to reset the form value.
+- The first thing we need to do is import, and use the 'useWizard' hook. This hook manages the Wizard step position. It should be more convenient if we could manage it from `Form`, as it could save some lines of code.
+
+As a second step, import the `usePersonForm` hook, as we are about to use it here, to register each field with the register function.
+
+- The last step is to add some buttons to navigate to the next step and reset the form value.
 
 ```tsx
 import { Input, Text } from "@chakra-ui/react";
@@ -146,9 +147,11 @@ export function BasicInfoStep() {
 
 ### Codding AddressStep
 
-- The first thing we need to do is to import, and use `useWizard` hook, this hook manage the Wizard step position, it should be more convenient if we could manage it from `Form`, it could save some lines of code.
-- The second step is to import, and use `usePersonForm` hook, we are going to use this hook here to register every field with the register function.
-- The last step is to add some buttons to submit the form, to reset the form value, and navigate to previous step.
+- First, we need to import and use the `useWizard` hook, which manages the Wizard step position. It would be more convenient if we could manage it from the `Form`, which could save some lines of code.
+
+- This step involves importing the `usePersonForm` hook, which will be used to register every field with the register function.
+
+- The last step is to add some buttons for submitting the form, resetting the form's value, and for navigating to the previous step.
 
 ```tsx
 import { Input } from "@chakra-ui/react";
@@ -185,4 +188,4 @@ You can see the result in the [Codesandbox](https://codesandbox.io/p/sandbox/mus
 
 ## Conclusion
 
-Build a multi-step form can be easy if you use the right tools to build it. In this tutorial I showed you how `use-form` can do that easily. Using `use-form` you can go on, and build more complex forms multi-step, or not.
+Building a multi-step form can be easy if you use the right tools to build it. In this tutorial, I showed you how `use-form` can do that easily. Using `use-form` you can continue on, and create more complex forms, whether they are multi-step or not.
