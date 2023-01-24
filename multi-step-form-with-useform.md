@@ -8,7 +8,7 @@ One of the challenges of building multi-step forms is how to manage the entire f
 
 By contrast, when you use the [`@use-form/use-form`](https://github.com/Jucian0/useform), you do not need anything like this. You need to create one form and use it across all steps. Let's get started and figure out how it is possible.
 
-## Preparing the application
+## Setting up the Application
 
 Our first task is to prepare an application to develop your example of a multi-step form. This can be done with React + Vite, and with [Codesandbox](https://codesandbox.io) it will be easier since there are templates for React + Vite on Codesandbox.
 
@@ -22,7 +22,7 @@ Next, we need to install some dependencies in order to develop your example, so 
 yarn add @chakra-ui/react @emotion/react @emotion/styled framer-motion
 ```
 
-## Creating the application
+## Organizing the App Component
 
 The first step is to organize the `App.tsx` file. We are about to add a title, and some stuff to make the layout look better.
 In order to save time, we are already importing and add the `PersonForm`, this the component form that we are going to write in the next step.
@@ -55,9 +55,9 @@ In this example, let's develop a form that submits information about a person. T
 
 - In the second step, we will deal with complementary information, such as city, street, and zip code.
 
-## Codding the usePersonForm
+## Codding the usePersonForm Hook
 
-To do that, we are going to create a file named `usePersonForm.ts` into `PersonForm`:
+To do that, we are going to create a file named `usePersonForm.ts` inside `PersonForm` directory:
 
 ```tsx
 import { createForm } from "@use-form/use-form";
@@ -79,7 +79,7 @@ export const usePersonForm = createForm({
 
 ## Codding the Form component
 
-The `Form` component should contain all the steps, and the event handlers for `submit`, and `reset` events:
+The `Form` component should keep all the steps and handle the `submit` and `reset` events. We will import the `Wizard` component from `react-use-wizard` and our step components, `BasicInfoStep` and `AddressStep`, which will handle the logic for each step of the form.
 
 ```tsx
 import { usePersonForm } from "./usePersonForm";
@@ -116,7 +116,7 @@ The components of the steps should contain the form fields, and manage them.
 
 ### Codding BasicInfoStep
 
-- The first thing we need to do is import, and use the 'useWizard' hook. This hook manages the Wizard step position. It should be more convenient if we could manage it from `Form`, as it could save some lines of code. Unfortunately `react-use-wizard` doesn't allow it.
+- The first thing we need to do is import, and use the `useWizard` hook. This hook manages the Wizard step position. It could be more convenient if we could manage it from `Form`, as it could save some lines of code. Unfortunately `react-use-wizard` doesn't allow it.
 
 - As a second step, import the `usePersonForm` hook, as we are about to use it here, to register each field with the register function.
 
