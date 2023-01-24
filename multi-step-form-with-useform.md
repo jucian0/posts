@@ -27,7 +27,7 @@ yarn add @chakra-ui/react @emotion/react @emotion/styled framer-motion
 The first step is to organize the `App.tsx` file. We are about to add a title, and some stuff to make the layout look better.
 
 ```tsx
-import { ChakraProvider, Text, Box, Input } from "@chakra-ui/react";
+import { ChakraProvider, Text, Box } from "@chakra-ui/react";
 import { PersonForm } from "./PersonForm/Form";
 
 function App() {
@@ -69,9 +69,10 @@ export const usePersonForm = createForm({
     address: {
       street: "",
       city: "",
-      zipCode: null,
+      zipCode: "",
     },
   },
+  ///mode: "onChange",
 });
 ```
 
@@ -80,7 +81,7 @@ export const usePersonForm = createForm({
 The `Form` component should contain all the steps, and the event handlers for `submit`, and `reset` events:
 
 ```tsx
-import { Person, usePersonForm } from "./usePersonForm";
+import { usePersonForm } from "./usePersonForm";
 import { Wizard } from "react-use-wizard";
 import { BasicInfoStep } from "./BasicInfoStep";
 import { AddressStep } from "./AddressStep";
@@ -88,16 +89,17 @@ import { AddressStep } from "./AddressStep";
 export function PersonForm() {
   const form = usePersonForm();
 
-  function handleSubmit(e: Person) {
+  function handleSubmit(e) {
     console.log(e);
   }
 
-  function handleReset(_: React.FormEvent) {
-    form.reset();
-  }
+  function handleReset(e) {}
 
   return (
-    <form onReset={handleReset} onSubmit={form.handleSubmit(handleSubmit)}>
+    <form
+      onReset={form.handleReset(handleReset)}
+      onSubmit={form.handleSubmit(handleSubmit)}
+    >
       <Wizard>
         <BasicInfoStep />
         <AddressStep />
@@ -132,9 +134,9 @@ export function BasicInfoStep() {
   return (
     <Stack p={10}>
       <Text fontWeight={"bold"}>Basic Info</Text>
-      <Input mt={5} placeholder="First name" ref={register("firstName")} />
-      <Input mt={5} placeholder="Last name" ref={register("lastName")} />
-      <Input mt={5} placeholder="Age" type="number" ref={register("age")} />
+      <Input mt={5} placeholder="First name" {...register("firstName")} />
+      <Input mt={5} placeholder="Last name" {...register("lastName")} />
+      <Input mt={5} placeholder="Age" type="number" {...register("age")} />
 
       <Stack direction="row" spacing={4} justify="center" mt={5}>
         <Button type="reset">Reset</Button>
@@ -166,9 +168,9 @@ export function AddressStep() {
   return (
     <Stack p={10}>
       <Text fontWeight={"bold"}>Address</Text>
-      <Input mt={5} placeholder="Street" ref={register("address.street")} />
-      <Input mt={5} placeholder="City" ref={register("address.city")} />
-      <Input mt={5} placeholder="Zip Code" ref={register("address.zipCode")} />
+      <Input mt={5} placeholder="Street" {...register("address.street")} />
+      <Input mt={5} placeholder="City" {...register("address.city")} />
+      <Input mt={5} placeholder="Zip Code" {...register("address.zipCode")} />
 
       <Stack direction="row" spacing={4} justify="center" mt={5}>
         <Button onClick={previousStep}>Previous</Button>
@@ -182,9 +184,7 @@ export function AddressStep() {
 
 This is the final file structure of the example:
 
-![use-form, multi-step-form](multi-step-form.png)
-
-You can see the result in the [Codesandbox](https://codesandbox.io/p/sandbox/musing-margulis-z3m0nf)
+You can see the result in the [Codesandbox](https://codesandbox.io/s/multi-step-form-react-j8g4fn)
 
 ## Conclusion
 
